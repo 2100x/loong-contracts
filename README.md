@@ -9,6 +9,19 @@ trades on a bonding curve, then graduates into a permanently locked **PancakeSwa
 - Contracts, roles and risks: https://loongfamily.app/#/contracts
 - Deployment manifest: https://loongfamily.app/contracts/manifest.json
 
+## Technology Stack
+
+- **Blockchain**: BNB Smart Chain (BSC)
+- **Smart Contracts**: Solidity 0.8.26
+- **DEX**: PancakeSwap Infinity (CL pool manager, custom hook) and PancakeSwap Universal Router for BNB routing
+- **Frontend**: vanilla JS + ethers.js
+- **Development**: Foundry (fork tests against BSC mainnet), OpenZeppelin Contracts 5.x
+
+## Supported Networks
+
+- **BNB Smart Chain Mainnet** (Chain ID: 56) — production
+- **BNB Smart Chain Testnet** (Chain ID: 97) — staging, https://testnet.loongfamily.app
+
 ## What is different
 
 - **Real-market quote assets.** Pair a coin with BNB, stablecoins, or ~100 tokenized stocks (NVDA, TSLA, AAPL…) and
@@ -39,6 +52,10 @@ Deployed 2026-09-25 from block `124024834`. All contracts are source-verified on
 | LoongFoundationVault ($LOONG vault) | [0xFd89650CCC6f15403996014F6f10382F1f67A485](https://bscscan.com/address/0xFd89650CCC6f15403996014F6f10382F1f67A485) |
 | LoongBuybackBurner (UUPS proxy) | [0xEc7e9274b5dD5cC85cF5e35786a6a9FdC2a4c165](https://bscscan.com/address/0xEc7e9274b5dD5cC85cF5e35786a6a9FdC2a4c165) |
 
+BNB Smart Chain Testnet (Chain ID 97): factory `0xc3fF2dd435e1E12e4c59D62D58BAcD4cF64F593F`,
+hook `0x670879410F170Eddc00B2596b8c5D6567f502C49`, LaunchAndBuy `0x0262ef2715012DF28AE35927fc4eaf0f47F20CA6`,
+SwapAndBuy `0xf5Ca57428D817862814454597fdB16aeD39926CB`.
+
 The full list, the PancakeSwap Infinity dependencies and every approved quote asset are in
 [`deployments/56.json`](deployments/56.json) and [`abi-and-manifest/manifest.json`](abi-and-manifest/manifest.json).
 Owner roles are held by a Gnosis Safe 2-of-3 multisig.
@@ -61,8 +78,8 @@ Infinity core and periphery, Permit2, forge-std (under `lib/`).
 
 ```bash
 forge build
-export BSC_RPC=<a BNB Smart Chain mainnet RPC URL>
-forge test            # fork tests against BNB Smart Chain mainnet
+export BSC_RPC=<a BNB Smart Chain mainnet archive RPC URL>
+forge test            # fork tests against BNB Smart Chain mainnet (chainId 56)
 ```
 
 ## Integrate

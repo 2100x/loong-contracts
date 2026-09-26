@@ -10,5 +10,11 @@ bytecode_hash = "none"
 fs_permissions = [{ access = "read", path = "../config" }, { access = "read-write", path = "../deployments" }]
 remappings = ["@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/","forge-std/=lib/forge-std/src/","infinity-core/=lib/infinity-core/","infinity-periphery/=lib/infinity-periphery/","permit2/=lib/permit2/","solmate/=lib/solmate/"]
 
+# Loong is deployed on BNB Smart Chain (chainId 56); testnet deployments use BSC Testnet (chainId 97).
 [rpc_endpoints]
-bsc = "${BSC_RPC}"
+bsc = "https://bsc-dataseed.bnbchain.org"
+bsc_testnet = "https://data-seed-prebsc-1-s1.bnbchain.org:8545"
+
+[etherscan]
+bsc = { key = "${BSCSCAN_API_KEY}", chain = 56, url = "https://api.bscscan.com/api" }
+bsc_testnet = { key = "${BSCSCAN_API_KEY}", chain = 97, url = "https://api-testnet.bscscan.com/api" }

@@ -1,0 +1,1170 @@
+[
+ {
+  "name": "AddressEmptyCode",
+  "signature": "AddressEmptyCode(address)",
+  "selector": "0x9996b315",
+  "contracts": [
+   "LoongBuybackBurner"
+  ]
+ },
+ {
+  "name": "AlreadyGraduated",
+  "signature": "AlreadyGraduated()",
+  "selector": "0xe6a0d45f",
+  "contracts": [
+   "LoongBondingCurve"
+  ]
+ },
+ {
+  "name": "AlreadyInitialized",
+  "signature": "AlreadyInitialized()",
+  "selector": "0x0dc149f0",
+  "contracts": [
+   "LoongBondingCurve",
+   "LoongLaunchLocker",
+   "LoongBuybackVault"
+  ]
+ },
+ {
+  "name": "AlreadyRegistered",
+  "signature": "AlreadyRegistered()",
+  "selector": "0x3a81d6fc",
+  "contracts": [
+   "LoongMemeHook"
+  ]
+ },
+ {
+  "name": "AlreadySet",
+  "signature": "AlreadySet()",
+  "selector": "0xa741a045",
+  "contracts": [
+   "LoongLaunchFactory",
+   "LoongMemeHook"
+  ]
+ },
+ {
+  "name": "BadParams",
+  "signature": "BadParams()",
+  "selector": "0x019af637",
+  "contracts": [
+   "LoongBuybackBurner"
+  ]
+ },
+ {
+  "name": "BadRoute",
+  "signature": "BadRoute()",
+  "selector": "0xc4c321d1",
+  "contracts": [
+   "LoongBuybackBurner"
+  ]
+ },
+ {
+  "name": "CombinedFeeTooHigh",
+  "signature": "CombinedFeeTooHigh()",
+  "selector": "0x49e55bcb",
+  "contracts": [
+   "LoongLaunchFactory"
+  ]
+ },
+ {
+  "name": "CoreLpFeeMustBeZero",
+  "signature": "CoreLpFeeMustBeZero()",
+  "selector": "0x85258712",
+  "contracts": [
+   "LoongLaunchFactory"
+  ]
+ },
+ {
+  "name": "Create2EmptyBytecode",
+  "signature": "Create2EmptyBytecode()",
+  "selector": "0x4ca249dc",
+  "contracts": [
+   "LoongLaunchDeployer"
+  ]
+ },
+ {
+  "name": "CreatorRecipientChangeRequiresTimelock",
+  "signature": "CreatorRecipientChangeRequiresTimelock()",
+  "selector": "0xbca224e7",
+  "contracts": [
+   "LoongBondingCurve"
+  ]
+ },
+ {
+  "name": "CreatorTaxTooHigh",
+  "signature": "CreatorTaxTooHigh()",
+  "selector": "0x9ad465dc",
+  "contracts": [
+   "LoongLaunchFactory"
+  ]
+ },
+ {
+  "name": "CurveFeeTooHigh",
+  "signature": "CurveFeeTooHigh()",
+  "selector": "0x4e222a24",
+  "contracts": [
+   "LoongLaunchFactory"
+  ]
+ },
+ {
+  "name": "CurveGraduated",
+  "signature": "CurveGraduated()",
+  "selector": "0x025ac17e",
+  "contracts": [
+   "LoongBondingCurve"
+  ]
+ },
+ {
+  "name": "CurveNotQuotable",
+  "signature": "CurveNotQuotable()",
+  "selector": "0x95e32dab",
+  "contracts": [
+   "LoongLaunchFactory"
+  ]
+ },
+ {
+  "name": "ERC1967InvalidImplementation",
+  "signature": "ERC1967InvalidImplementation(address)",
+  "selector": "0x4c9c8ce3",
+  "contracts": [
+   "LoongBuybackBurner"
+  ]
+ },
+ {
+  "name": "ERC1967NonPayable",
+  "signature": "ERC1967NonPayable()",
+  "selector": "0xb398979f",
+  "contracts": [
+   "LoongBuybackBurner"
+  ]
+ },
+ {
+  "name": "ERC20InsufficientAllowance",
+  "signature": "ERC20InsufficientAllowance(address,uint256,uint256)",
+  "selector": "0xfb8f41b2",
+  "contracts": [
+   "LoongLauncherToken"
+  ]
+ },
+ {
+  "name": "ERC20InsufficientBalance",
+  "signature": "ERC20InsufficientBalance(address,uint256,uint256)",
+  "selector": "0xe450d38c",
+  "contracts": [
+   "LoongLauncherToken"
+  ]
+ },
+ {
+  "name": "ERC20InvalidApprover",
+  "signature": "ERC20InvalidApprover(address)",
+  "selector": "0xe602df05",
+  "contracts": [
+   "LoongLauncherToken"
+  ]
+ },
+ {
+  "name": "ERC20InvalidReceiver",
+  "signature": "ERC20InvalidReceiver(address)",
+  "selector": "0xec442f05",
+  "contracts": [
+   "LoongLauncherToken"
+  ]
+ },
+ {
+  "name": "ERC20InvalidSender",
+  "signature": "ERC20InvalidSender(address)",
+  "selector": "0x96c6fd1e",
+  "contracts": [
+   "LoongLauncherToken"
+  ]
+ },
+ {
+  "name": "ERC20InvalidSpender",
+  "signature": "ERC20InvalidSpender(address)",
+  "selector": "0x94280d62",
+  "contracts": [
+   "LoongLauncherToken"
+  ]
+ },
+ {
+  "name": "ExemptionListTooLong",
+  "signature": "ExemptionListTooLong()",
+  "selector": "0x021c0d43",
+  "contracts": [
+   "LoongLaunchFactory",
+   "LaunchAndBuy"
+  ]
+ },
+ {
+  "name": "FailedCall",
+  "signature": "FailedCall()",
+  "selector": "0xd6bda275",
+  "contracts": [
+   "LoongBuybackBurner"
+  ]
+ },
+ {
+  "name": "FailedDeployment",
+  "signature": "FailedDeployment()",
+  "selector": "0xb06ebf3d",
+  "contracts": [
+   "LoongLaunchDeployer"
+  ]
+ },
+ {
+  "name": "FeeTransferFailed",
+  "signature": "FeeTransferFailed()",
+  "selector": "0x4033e4e3",
+  "contracts": [
+   "LoongLaunchFactory",
+   "LoongGraduationExecutor"
+  ]
+ },
+ {
+  "name": "GraduationExecutorNotSet",
+  "signature": "GraduationExecutorNotSet()",
+  "selector": "0xd43cabc3",
+  "contracts": [
+   "LoongLaunchFactory"
+  ]
+ },
+ {
+  "name": "GraduationRescueTooEarly",
+  "signature": "GraduationRescueTooEarly(uint256)",
+  "selector": "0xbdcd75af",
+  "contracts": [
+   "LoongLaunchFactory",
+   "LoongBondingCurve"
+  ]
+ },
+ {
+  "name": "GraduationSeedNotViable",
+  "signature": "GraduationSeedNotViable()",
+  "selector": "0x2c37d0eb",
+  "contracts": [
+   "LoongLaunchFactory"
+  ]
+ },
+ {
+  "name": "GraduationStillViable",
+  "signature": "GraduationStillViable()",
+  "selector": "0x6d3bcfe5",
+  "contracts": [
+   "LoongLaunchFactory"
+  ]
+ },
+ {
+  "name": "HookNotImplemented",
+  "signature": "HookNotImplemented()",
+  "selector": "0x0a85dc29",
+  "contracts": [
+   "LoongMemeHook"
+  ]
+ },
+ {
+  "name": "InexactQuoteTransfer",
+  "signature": "InexactQuoteTransfer(address,uint256,uint256)",
+  "selector": "0x197001d6",
+  "contracts": [
+   "LoongMemeHook"
+  ]
+ },
+ {
+  "name": "InexactTransfer",
+  "signature": "InexactTransfer(address,uint256,uint256)",
+  "selector": "0x495a9962",
+  "contracts": [
+   "LoongLaunchFactory"
+  ]
+ },
+ {
+  "name": "InexactTransfer",
+  "signature": "InexactTransfer(uint256,uint256)",
+  "selector": "0x9366facf",
+  "contracts": [
+   "FeeEscrow"
+  ]
+ },
+ {
+  "name": "InsufficientBalance",
+  "signature": "InsufficientBalance(uint256,uint256)",
+  "selector": "0xcf479181",
+  "contracts": [
+   "LoongLaunchDeployer"
+  ]
+ },
+ {
+  "name": "InsufficientBnbOut",
+  "signature": "InsufficientBnbOut(uint256,uint256)",
+  "selector": "0x77d73d6b",
+  "contracts": [
+   "LoongBuybackBurner"
+  ]
+ },
+ {
+  "name": "InsufficientInputAmount",
+  "signature": "InsufficientInputAmount()",
+  "selector": "0x098fb561",
+  "contracts": [
+   "LoongBondingCurve"
+  ]
+ },
+ {
+  "name": "InsufficientLiquidity",
+  "signature": "InsufficientLiquidity()",
+  "selector": "0xbb55fd27",
+  "contracts": [
+   "LoongBondingCurve"
+  ]
+ },
+ {
+  "name": "InsufficientNativeOut",
+  "signature": "InsufficientNativeOut(uint256,uint256)",
+  "selector": "0x54af8ce7",
+  "contracts": [
+   "SwapAndBuy"
+  ]
+ },
+ {
+  "name": "InsufficientOutputAmount",
+  "signature": "InsufficientOutputAmount()",
+  "selector": "0x42301c23",
+  "contracts": [
+   "LoongBondingCurve"
+  ]
+ },
+ {
+  "name": "InsufficientQuoteOut",
+  "signature": "InsufficientQuoteOut(uint256,uint256)",
+  "selector": "0xb07fd079",
+  "contracts": [
+   "LaunchAndBuy",
+   "SwapAndBuy"
+  ]
+ },
+ {
+  "name": "InternalSwapRequiresOperator",
+  "signature": "InternalSwapRequiresOperator()",
+  "selector": "0x31cdb504",
+  "contracts": [
+   "LoongBondingCurve",
+   "LoongMemeHook"
+  ]
+ },
+ {
+  "name": "InvalidBasisPoints",
+  "signature": "InvalidBasisPoints()",
+  "selector": "0x800c7e91",
+  "contracts": [
+   "LoongLaunchFactory"
+  ]
+ },
+ {
+  "name": "InvalidBps",
+  "signature": "InvalidBps()",
+  "selector": "0xc6cc5d7f",
+  "contracts": [
+   "LoongMemeHook"
+  ]
+ },
+ {
+  "name": "InvalidController",
+  "signature": "InvalidController()",
+  "selector": "0x6d5769be",
+  "contracts": [
+   "LoongFoundationVault"
+  ]
+ },
+ {
+  "name": "InvalidFeePolicy",
+  "signature": "InvalidFeePolicy()",
+  "selector": "0x7a34030f",
+  "contracts": [
+   "LoongBondingCurve"
+  ]
+ },
+ {
+  "name": "InvalidGraduationThreshold",
+  "signature": "InvalidGraduationThreshold()",
+  "selector": "0x2bb8bdd6",
+  "contracts": [
+   "LoongLaunchFactory"
+  ]
+ },
+ {
+  "name": "InvalidInitialization",
+  "signature": "InvalidInitialization()",
+  "selector": "0xf92ee8a9",
+  "contracts": [
+   "LoongBuybackBurner"
+  ]
+ },
+ {
+  "name": "InvalidLaunchConfigId",
+  "signature": "InvalidLaunchConfigId()",
+  "selector": "0x68b42c59",
+  "contracts": [
+   "LoongLaunchFactory"
+  ]
+ },
+ {
+  "name": "InvalidLaunchEconomics",
+  "signature": "InvalidLaunchEconomics()",
+  "selector": "0xbc0ecfe3",
+  "contracts": [
+   "LoongBondingCurve"
+  ]
+ },
+ {
+  "name": "InvalidPhantomQuote",
+  "signature": "InvalidPhantomQuote()",
+  "selector": "0x2b7ad4f8",
+  "contracts": [
+   "LoongLaunchFactory"
+  ]
+ },
+ {
+  "name": "InvalidPoolKey",
+  "signature": "InvalidPoolKey()",
+  "selector": "0xc256622b",
+  "contracts": [
+   "LoongMemeHook"
+  ]
+ },
+ {
+  "name": "InvalidSnipeTaxWindow",
+  "signature": "InvalidSnipeTaxWindow()",
+  "selector": "0xd9521a85",
+  "contracts": [
+   "LoongLaunchFactory"
+  ]
+ },
+ {
+  "name": "InvalidTick",
+  "signature": "InvalidTick(int24)",
+  "selector": "0x8b86327a",
+  "contracts": [
+   "LoongGraduationExecutor"
+  ]
+ },
+ {
+  "name": "InvalidTickSpacing",
+  "signature": "InvalidTickSpacing()",
+  "selector": "0x270815a0",
+  "contracts": [
+   "LoongLaunchFactory"
+  ]
+ },
+ {
+  "name": "InvalidTokenParams",
+  "signature": "InvalidTokenParams()",
+  "selector": "0x374852ca",
+  "contracts": [
+   "LoongLaunchFactory"
+  ]
+ },
+ {
+  "name": "InvalidValue",
+  "signature": "InvalidValue()",
+  "selector": "0xaa7feadc",
+  "contracts": [
+   "LoongFoundationVault"
+  ]
+ },
+ {
+  "name": "InvalidVestingTerms",
+  "signature": "InvalidVestingTerms()",
+  "selector": "0xa7d7d0c5",
+  "contracts": [
+   "LoongBuybackVault"
+  ]
+ },
+ {
+  "name": "IsPaused",
+  "signature": "IsPaused()",
+  "selector": "0x1309a563",
+  "contracts": [
+   "LoongBuybackBurner"
+  ]
+ },
+ {
+  "name": "LaunchConfigDisabled",
+  "signature": "LaunchConfigDisabled()",
+  "selector": "0xa8b63076",
+  "contracts": [
+   "LoongLaunchFactory"
+  ]
+ },
+ {
+  "name": "LaunchDependenciesNotWired",
+  "signature": "LaunchDependenciesNotWired()",
+  "selector": "0x1de25df3",
+  "contracts": [
+   "LoongLaunchFactory"
+  ]
+ },
+ {
+  "name": "LaunchDeployerNotSet",
+  "signature": "LaunchDeployerNotSet()",
+  "selector": "0x57332dcf",
+  "contracts": [
+   "LoongLaunchFactory"
+  ]
+ },
+ {
+  "name": "LaunchEconomicsMismatch",
+  "signature": "LaunchEconomicsMismatch(bytes32,bytes32)",
+  "selector": "0xecb27319",
+  "contracts": [
+   "LoongLaunchFactory"
+  ]
+ },
+ {
+  "name": "LaunchFeeNotPaid",
+  "signature": "LaunchFeeNotPaid()",
+  "selector": "0x7e6d78a5",
+  "contracts": [
+   "LoongLaunchFactory"
+  ]
+ },
+ {
+  "name": "Locked",
+  "signature": "Locked()",
+  "selector": "0x0f2e5b6c",
+  "contracts": [
+   "LoongBuybackBurner"
+  ]
+ },
+ {
+  "name": "LoongNotSet",
+  "signature": "LoongNotSet()",
+  "selector": "0x9b2536ee",
+  "contracts": [
+   "LoongBuybackBurner"
+  ]
+ },
+ {
+  "name": "MetadataTooLong",
+  "signature": "MetadataTooLong()",
+  "selector": "0x85b8e2f4",
+  "contracts": [
+   "LoongLaunchDeployer"
+  ]
+ },
+ {
+  "name": "MinimumOutputRequired",
+  "signature": "MinimumOutputRequired()",
+  "selector": "0x3672d25f",
+  "contracts": [
+   "LoongBondingCurve",
+   "LoongMemeHook",
+   "LaunchAndBuy"
+  ]
+ },
+ {
+  "name": "MintAmountOverflow",
+  "signature": "MintAmountOverflow()",
+  "selector": "0xeee66814",
+  "contracts": [
+   "LoongGraduationExecutor"
+  ]
+ },
+ {
+  "name": "NativeQuote",
+  "signature": "NativeQuote()",
+  "selector": "0x1f1740d5",
+  "contracts": [
+   "LaunchAndBuy",
+   "SwapAndBuy"
+  ]
+ },
+ {
+  "name": "NativeTransferFailed",
+  "signature": "NativeTransferFailed()",
+  "selector": "0xf4b3b1bc",
+  "contracts": [
+   "FeeEscrow"
+  ]
+ },
+ {
+  "name": "NativeValueMismatch",
+  "signature": "NativeValueMismatch(uint256,uint256)",
+  "selector": "0xbc760cfe",
+  "contracts": [
+   "LoongBondingCurve",
+   "LaunchAndBuy"
+  ]
+ },
+ {
+  "name": "NoBalance",
+  "signature": "NoBalance()",
+  "selector": "0xc2caa2a6",
+  "contracts": [
+   "FeeEscrow"
+  ]
+ },
+ {
+  "name": "NoPendingChange",
+  "signature": "NoPendingChange()",
+  "selector": "0xa3fef2f8",
+  "contracts": [
+   "LoongLaunchFactory"
+  ]
+ },
+ {
+  "name": "NoRoute",
+  "signature": "NoRoute(address)",
+  "selector": "0xcf3c8b74",
+  "contracts": [
+   "LoongBuybackBurner"
+  ]
+ },
+ {
+  "name": "NotAuthorizedLocker",
+  "signature": "NotAuthorizedLocker()",
+  "selector": "0xba13c3d9",
+  "contracts": [
+   "LoongBuybackVault"
+  ]
+ },
+ {
+  "name": "NotBnbPaired",
+  "signature": "NotBnbPaired()",
+  "selector": "0x0ed0c934",
+  "contracts": [
+   "LoongBuybackBurner"
+  ]
+ },
+ {
+  "name": "NotBuybackController",
+  "signature": "NotBuybackController()",
+  "selector": "0x377dfc9a",
+  "contracts": [
+   "LoongLaunchFactory"
+  ]
+ },
+ {
+  "name": "NotController",
+  "signature": "NotController()",
+  "selector": "0x23019e67",
+  "contracts": [
+   "LoongFoundationVault"
+  ]
+ },
+ {
+  "name": "NotCreatorFeeRecipient",
+  "signature": "NotCreatorFeeRecipient()",
+  "selector": "0xb9f93944",
+  "contracts": [
+   "LoongLaunchFactory"
+  ]
+ },
+ {
+  "name": "NotFactory",
+  "signature": "NotFactory()",
+  "selector": "0x32cc7236",
+  "contracts": [
+   "LoongBondingCurve",
+   "LoongMemeHook",
+   "LoongLaunchLocker",
+   "LoongLaunchDeployer",
+   "LoongGraduationExecutor",
+   "LoongBuybackVault"
+  ]
+ },
+ {
+  "name": "NotFactoryOwner",
+  "signature": "NotFactoryOwner()",
+  "selector": "0x428e0b92",
+  "contracts": [
+   "LoongBondingCurve"
+  ]
+ },
+ {
+  "name": "NotFeeSweepOperator",
+  "signature": "NotFeeSweepOperator()",
+  "selector": "0x8d42130c",
+  "contracts": [
+   "LoongBondingCurve",
+   "LoongMemeHook"
+  ]
+ },
+ {
+  "name": "NotInitialized",
+  "signature": "NotInitialized()",
+  "selector": "0x87138d5c",
+  "contracts": [
+   "LoongBondingCurve"
+  ]
+ },
+ {
+  "name": "NotInitializing",
+  "signature": "NotInitializing()",
+  "selector": "0xd7e6bcf8",
+  "contracts": [
+   "LoongBuybackBurner"
+  ]
+ },
+ {
+  "name": "NotKeeper",
+  "signature": "NotKeeper()",
+  "selector": "0xf512b278",
+  "contracts": [
+   "LoongBuybackBurner"
+  ]
+ },
+ {
+  "name": "NotLaunchForwarder",
+  "signature": "NotLaunchForwarder()",
+  "selector": "0xea9eaa96",
+  "contracts": [
+   "LoongLaunchFactory"
+  ]
+ },
+ {
+  "name": "NotOwner",
+  "signature": "NotOwner()",
+  "selector": "0x30cd7471",
+  "contracts": [
+   "LoongBuybackBurner"
+  ]
+ },
+ {
+  "name": "NotPendingOwner",
+  "signature": "NotPendingOwner()",
+  "selector": "0x1853971c",
+  "contracts": [
+   "LoongBuybackBurner"
+  ]
+ },
+ {
+  "name": "NotPoolManager",
+  "signature": "NotPoolManager()",
+  "selector": "0xae18210a",
+  "contracts": [
+   "LoongMemeHook"
+  ]
+ },
+ {
+  "name": "NotPositionManager",
+  "signature": "NotPositionManager()",
+  "selector": "0x20fdc658",
+  "contracts": [
+   "LoongLaunchLocker"
+  ]
+ },
+ {
+  "name": "NotReadyToGraduate",
+  "signature": "NotReadyToGraduate()",
+  "selector": "0xffa32558",
+  "contracts": [
+   "LoongLaunchFactory",
+   "LoongBondingCurve"
+  ]
+ },
+ {
+  "name": "NotSelfCall",
+  "signature": "NotSelfCall()",
+  "selector": "0xec7cdc0a",
+  "contracts": [
+   "LoongLaunchFactory"
+  ]
+ },
+ {
+  "name": "NotTradable",
+  "signature": "NotTradable()",
+  "selector": "0x69d49fb0",
+  "contracts": [
+   "LoongBuybackBurner"
+  ]
+ },
+ {
+  "name": "NotVault",
+  "signature": "NotVault()",
+  "selector": "0x62df0545",
+  "contracts": [
+   "LoongMemeHook"
+  ]
+ },
+ {
+  "name": "NotVestBeneficiary",
+  "signature": "NotVestBeneficiary()",
+  "selector": "0x0da3333b",
+  "contracts": [
+   "LoongBuybackVault"
+  ]
+ },
+ {
+  "name": "NotWhitelisted",
+  "signature": "NotWhitelisted()",
+  "selector": "0x584a7938",
+  "contracts": [
+   "LoongLaunchFactory"
+  ]
+ },
+ {
+  "name": "NothingToBuy",
+  "signature": "NothingToBuy(uint256)",
+  "selector": "0xdda37ffa",
+  "contracts": [
+   "LoongBuybackBurner"
+  ]
+ },
+ {
+  "name": "NothingToGraduate",
+  "signature": "NothingToGraduate()",
+  "selector": "0xc2074c46",
+  "contracts": [
+   "LoongLaunchFactory"
+  ]
+ },
+ {
+  "name": "NothingToRescue",
+  "signature": "NothingToRescue()",
+  "selector": "0x00f6b210",
+  "contracts": [
+   "LoongMemeHook"
+  ]
+ },
+ {
+  "name": "OwnableInvalidOwner",
+  "signature": "OwnableInvalidOwner(address)",
+  "selector": "0x1e4fbdf7",
+  "contracts": [
+   "LoongLaunchFactory",
+   "LoongMemeHook",
+   "LoongLaunchLocker",
+   "LaunchAndBuy",
+   "SwapAndBuy",
+   "LoongBuybackVault"
+  ]
+ },
+ {
+  "name": "OwnableUnauthorizedAccount",
+  "signature": "OwnableUnauthorizedAccount(address)",
+  "selector": "0x118cdaa7",
+  "contracts": [
+   "LoongLaunchFactory",
+   "LoongMemeHook",
+   "LoongLaunchLocker",
+   "LaunchAndBuy",
+   "SwapAndBuy",
+   "LoongBuybackVault"
+  ]
+ },
+ {
+  "name": "OwnershipCannotBeRenounced",
+  "signature": "OwnershipCannotBeRenounced()",
+  "selector": "0x2fab92ca",
+  "contracts": [
+   "LoongLaunchFactory",
+   "LoongMemeHook",
+   "LoongLaunchLocker",
+   "LoongBuybackVault"
+  ]
+ },
+ {
+  "name": "PairTokenDecimalsMismatch",
+  "signature": "PairTokenDecimalsMismatch(uint8,uint8)",
+  "selector": "0x4e3de34f",
+  "contracts": [
+   "LoongLaunchFactory"
+  ]
+ },
+ {
+  "name": "PairTokenDecimalsUnavailable",
+  "signature": "PairTokenDecimalsUnavailable()",
+  "selector": "0xe43c14ca",
+  "contracts": [
+   "LoongLaunchFactory"
+  ]
+ },
+ {
+  "name": "PairTokenEconomicsInvalid",
+  "signature": "PairTokenEconomicsInvalid()",
+  "selector": "0x764c63c8",
+  "contracts": [
+   "LoongLaunchFactory"
+  ]
+ },
+ {
+  "name": "PairTokenNotApproved",
+  "signature": "PairTokenNotApproved()",
+  "selector": "0x49285dfb",
+  "contracts": [
+   "LoongLaunchFactory"
+  ]
+ },
+ {
+  "name": "PairTokenValidationFailed",
+  "signature": "PairTokenValidationFailed()",
+  "selector": "0x26fbfa60",
+  "contracts": [
+   "LoongLaunchFactory"
+  ]
+ },
+ {
+  "name": "Permit2Mismatch",
+  "signature": "Permit2Mismatch()",
+  "selector": "0x06e618b4",
+  "contracts": [
+   "LoongGraduationExecutor"
+  ]
+ },
+ {
+  "name": "PositionAlreadyLocked",
+  "signature": "PositionAlreadyLocked()",
+  "selector": "0xfe3099b6",
+  "contracts": [
+   "LoongLaunchLocker"
+  ]
+ },
+ {
+  "name": "PositionNotHeld",
+  "signature": "PositionNotHeld()",
+  "selector": "0x6b49c94a",
+  "contracts": [
+   "LoongLaunchLocker"
+  ]
+ },
+ {
+  "name": "PriceMoved",
+  "signature": "PriceMoved(uint256,uint256)",
+  "selector": "0x9bcf4c3f",
+  "contracts": [
+   "LoongBuybackBurner"
+  ]
+ },
+ {
+  "name": "ReentrancyGuardReentrantCall",
+  "signature": "ReentrancyGuardReentrantCall()",
+  "selector": "0x3ee5aeb5",
+  "contracts": [
+   "LoongLaunchFactory",
+   "LoongBondingCurve",
+   "LoongMemeHook",
+   "FeeEscrow",
+   "LaunchAndBuy",
+   "SwapAndBuy",
+   "LoongBuybackVault",
+   "LoongFoundationVault"
+  ]
+ },
+ {
+  "name": "RefundFailed",
+  "signature": "RefundFailed()",
+  "selector": "0xf0c49d44",
+  "contracts": [
+   "LaunchAndBuy",
+   "SwapAndBuy"
+  ]
+ },
+ {
+  "name": "SafeCastOverflow",
+  "signature": "SafeCastOverflow()",
+  "selector": "0x93dafdf1",
+  "contracts": [
+   "LoongGraduationExecutor"
+  ]
+ },
+ {
+  "name": "SafeCastOverflowedIntToUint",
+  "signature": "SafeCastOverflowedIntToUint(int256)",
+  "selector": "0xa8ce4432",
+  "contracts": [
+   "LoongMemeHook"
+  ]
+ },
+ {
+  "name": "SafeCastOverflowedUintToInt",
+  "signature": "SafeCastOverflowedUintToInt(uint256)",
+  "selector": "0x24775e06",
+  "contracts": [
+   "LoongMemeHook"
+  ]
+ },
+ {
+  "name": "SafeERC20FailedOperation",
+  "signature": "SafeERC20FailedOperation(address)",
+  "selector": "0x5274afe7",
+  "contracts": [
+   "LoongLaunchFactory",
+   "LoongBondingCurve",
+   "LoongMemeHook",
+   "FeeEscrow",
+   "LoongLaunchLocker",
+   "LoongGraduationExecutor",
+   "LaunchAndBuy",
+   "SwapAndBuy",
+   "LoongBuybackVault",
+   "LoongFoundationVault",
+   "LoongBuybackBurner"
+  ]
+ },
+ {
+  "name": "SlippageExceeded",
+  "signature": "SlippageExceeded(uint256,uint256)",
+  "selector": "0x71c4efed",
+  "contracts": [
+   "LoongBondingCurve",
+   "LoongMemeHook",
+   "LoongGraduationExecutor"
+  ]
+ },
+ {
+  "name": "SqrtPriceOutOfBounds",
+  "signature": "SqrtPriceOutOfBounds()",
+  "selector": "0x582157bb",
+  "contracts": [
+   "LoongLaunchFactory"
+  ]
+ },
+ {
+  "name": "SupplyTooHigh",
+  "signature": "SupplyTooHigh()",
+  "selector": "0xacb9fa2b",
+  "contracts": [
+   "LoongLaunchFactory"
+  ]
+ },
+ {
+  "name": "SupplyTooLow",
+  "signature": "SupplyTooLow()",
+  "selector": "0xc0b4e373",
+  "contracts": [
+   "LoongLaunchFactory"
+  ]
+ },
+ {
+  "name": "TimelockExpired",
+  "signature": "TimelockExpired(uint256)",
+  "selector": "0xb79d40e8",
+  "contracts": [
+   "LoongLaunchFactory"
+  ]
+ },
+ {
+  "name": "TimelockNotElapsed",
+  "signature": "TimelockNotElapsed(uint256)",
+  "selector": "0x810c4f2a",
+  "contracts": [
+   "LoongLaunchFactory"
+  ]
+ },
+ {
+  "name": "TokenNotFound",
+  "signature": "TokenNotFound()",
+  "selector": "0xcbdb7b30",
+  "contracts": [
+   "LoongLaunchFactory"
+  ]
+ },
+ {
+  "name": "TooSoon",
+  "signature": "TooSoon(uint256)",
+  "selector": "0xe86f59ea",
+  "contracts": [
+   "LoongBuybackBurner"
+  ]
+ },
+ {
+  "name": "TransferFailed",
+  "signature": "TransferFailed()",
+  "selector": "0x90b8ec18",
+  "contracts": [
+   "LoongBondingCurve",
+   "LoongFoundationVault",
+   "LoongBuybackBurner"
+  ]
+ },
+ {
+  "name": "UUPSUnauthorizedCallContext",
+  "signature": "UUPSUnauthorizedCallContext()",
+  "selector": "0xe07c8dba",
+  "contracts": [
+   "LoongBuybackBurner"
+  ]
+ },
+ {
+  "name": "UUPSUnsupportedProxiableUUID",
+  "signature": "UUPSUnsupportedProxiableUUID(bytes32)",
+  "selector": "0xaa1d49a4",
+  "contracts": [
+   "LoongBuybackBurner"
+  ]
+ },
+ {
+  "name": "UnexpectedNativeValue",
+  "signature": "UnexpectedNativeValue()",
+  "selector": "0xe0aeda7d",
+  "contracts": [
+   "LoongBondingCurve"
+  ]
+ },
+ {
+  "name": "UnknownPool",
+  "signature": "UnknownPool()",
+  "selector": "0xf7139e33",
+  "contracts": [
+   "LoongMemeHook"
+  ]
+ },
+ {
+  "name": "UnknownToken",
+  "signature": "UnknownToken()",
+  "selector": "0x8698bf37",
+  "contracts": [
+   "SwapAndBuy"
+  ]
+ },
+ {
+  "name": "VanitySuffixRequired",
+  "signature": "VanitySuffixRequired(address)",
+  "selector": "0x0b4671bf",
+  "contracts": [
+   "LoongLaunchFactory"
+  ]
+ },
+ {
+  "name": "VestingTermsMismatch",
+  "signature": "VestingTermsMismatch()",
+  "selector": "0x8a621fd9",
+  "contracts": [
+   "LoongBuybackVault"
+  ]
+ },
+ {
+  "name": "WrongGraduationPhase",
+  "signature": "WrongGraduationPhase()",
+  "selector": "0x9465dbd4",
+  "contracts": [
+   "LoongLaunchFactory"
+  ]
+ },
+ {
+  "name": "ZeroAddress",
+  "signature": "ZeroAddress()",
+  "selector": "0xd92e233d",
+  "contracts": [
+   "LoongLaunchFactory",
+   "LoongBondingCurve",
+   "LoongLauncherToken",
+   "LoongMemeHook",
+   "FeeEscrow",
+   "LoongLaunchLocker",
+   "LoongGraduationExecutor",
+   "LaunchAndBuy",
+   "SwapAndBuy",
+   "LoongBuybackVault",
+   "LoongBuybackBurner"
+  ]
+ },
+ {
+  "name": "ZeroAmount",
+  "signature": "ZeroAmount()",
+  "selector": "0x1f2a2005",
+  "contracts": [
+   "LoongBondingCurve"
+  ]
+ }
+]

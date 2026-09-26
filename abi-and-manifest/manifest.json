@@ -1,0 +1,3403 @@
+{
+ "schemaVersion": 1,
+ "project": "Loong",
+ "network": {
+  "name": "BNB Smart Chain",
+  "chainId": 56
+ },
+ "stack": "bnb-mainnet-1",
+ "indexFromBlock": 124024834,
+ "compiler": {
+  "solc": "0.8.26",
+  "optimizer": {
+   "runs": 200,
+   "viaIR": true
+  },
+  "evmVersion": "cancun"
+ },
+ "sourceCommit": null,
+ "contracts": {
+  "buybackBurner": "0xEc7e9274b5dD5cC85cF5e35786a6a9FdC2a4c165",
+  "buybackVault": "0x9203588B9b347DE8609161846256eC02D5EF6A98",
+  "factory": "0x60dDcE270E1B9A8325daD4A39dB1442598b26B3A",
+  "feeEscrow": "0x65c6aa6B6974E0Cdd234252EB7645f70934221B7",
+  "graduationExecutor": "0x930469e94c9760830a2Ed7208bf38ff95b342957",
+  "hook": "0xD795A9815D68548aF2Bafc9862f3AdFF3DFb36ec",
+  "launchAndBuy": "0x0198Ae078dEEDDF7c50912C438E681464b568b91",
+  "launchDeployer": "0x32F3330Db4153d004C2220216b82fe506D26b72b",
+  "locker": "0x65790EBA7B5C1D9B77C1e8e8ecA638Cce812c48C",
+  "platformTokenVault": "0xFd89650CCC6f15403996014F6f10382F1f67A485",
+  "swapAndBuy": "0x52513D25A55348B69db2bC9De270B59C2793091d"
+ },
+ "perLaunch": {
+  "LoongBondingCurve": "getLaunchedToken(token).curve",
+  "LoongLauncherToken": "TokenLaunched.token"
+ },
+ "roles": {
+  "owner": "0xB0324AC5C38ac627e051550BE1D87D428Af7A0E4",
+  "protocolFeeRecipient": "0x7782549b484bd9Ca81abB0EF2fDf551a5A9A9aD0",
+  "platformTokenVaultController": "0xEc7e9274b5dD5cC85cF5e35786a6a9FdC2a4c165",
+  "keeper": "0x7cA01E7c41877000eE5B005e31bEBfb48B78F5Bf",
+  "note": "owner and protocolFeeRecipient are Gnosis Safe 2-of-3 multisigs. Ownership of factory, hook, locker, buybackVault and buybackBurner is two-step (Ownable2Step); read owner()/pendingOwner() for the live state."
+ },
+ "dependencies": {
+  "pancakeswapInfinity": {
+   "vault": "0x238a358808379702088667322f80aC48bAd5e6c4",
+   "clPoolManager": "0xa0FfB9c1CE1Fe56963B0321B32E7A0302114058b",
+   "clPositionManager": "0x55f4c8abA71A1e923edC303eb4fEfF14608cC226",
+   "permit2": "0x31c2F6fcFf4F8759b3Bd5Bf0e1084A055615c768",
+   "clQuoter": "0xd0737C9762912dD34c3271197E362Aa736Df0926",
+   "universalRouter": "0xd9C500DfF816a1Da21A48A732d3498Bf09dc9AEB",
+   "wbnb": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+   "v3Quoter": "0xB048Bbc1Ee6b733FFfCFb9e9CeF7375518e25997"
+  }
+ },
+ "initialConfig": {
+  "launchConfigs": [
+   {
+    "id": 0,
+    "supply": "1000000000000000000000000000",
+    "curveFeeBps": 100,
+    "phantomQuote": "4800000000000000000",
+    "graduationThreshold": "12000000000000000000",
+    "poolFee": 0,
+    "tickSpacing": 200
+   }
+  ],
+  "launchFeeWei": "0",
+  "feePolicyBps": {
+   "creator": 70,
+   "platform": 10,
+   "coinBuybackBurn": 10,
+   "loongBuyback": 10
+  },
+  "maxCreatorTaxBps": 0,
+  "snipeTax": {
+   "startBps": 9900,
+   "seconds": 3
+  },
+  "vanitySuffix": "0x9999",
+  "buybackBurner": {
+   "keeper": "0x7cA01E7c41877000eE5B005e31bEBfb48B78F5Bf",
+   "chunkWei": "50000000000000000",
+   "minBuyWei": "10000000000000000",
+   "minIntervalSeconds": 900,
+   "tipWei": "200000000000000",
+   "maxDeviationBps": 300,
+   "driftBpsPerHour": 1200,
+   "launchDelaySeconds": 60,
+   "openAccess": true
+  },
+  "pairTokens": [
+   {
+    "pairToken": "0x55d398326f99059fF775485246999027B3197955",
+    "symbol": "USDT",
+    "decimals": 18,
+    "phantomQuote": "4000000000000000000000",
+    "graduationThreshold": "10000000000000000000000"
+   },
+   {
+    "pairToken": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+    "symbol": "USDC",
+    "decimals": 18,
+    "phantomQuote": "4000000000000000000000",
+    "graduationThreshold": "10000000000000000000000"
+   },
+   {
+    "pairToken": "0xBEEA1D618e533a387D941F58a7d4c9b7bD377777",
+    "symbol": "牛来",
+    "decimals": 18,
+    "phantomQuote": "39069000000000000000000",
+    "graduationThreshold": "97672000000000000000000"
+   },
+   {
+    "pairToken": "0xFe189E97832DA1573e4e4Ff034F4fFC3a15c7777",
+    "symbol": "MarsCoin",
+    "decimals": 18,
+    "phantomQuote": "34621000000000000000000",
+    "graduationThreshold": "86554000000000000000000"
+   },
+   {
+    "pairToken": "0xeCCBb861c0dda7eFd964010085488B69317e4444",
+    "symbol": "龙虾",
+    "decimals": 18,
+    "phantomQuote": "30674000000000000000000",
+    "graduationThreshold": "76684000000000000000000"
+   },
+   {
+    "pairToken": "0x10343EF7da3301493D7Ecb647d68A288C6c1Db2F",
+    "symbol": "AAOIB",
+    "decimals": 18,
+    "phantomQuote": "41977120000000000000",
+    "graduationThreshold": "104942800000000000000"
+   },
+   {
+    "pairToken": "0x431a3BEE82E2ca41e49895CbECE5bB0F76A89b7A",
+    "symbol": "AAPLB",
+    "decimals": 18,
+    "phantomQuote": "12064913925178603104",
+    "graduationThreshold": "30162284812946507761"
+   },
+   {
+    "pairToken": "0x1282493EdE6a22753D45Cb2C0fdBd8D35E97555a",
+    "symbol": "ALABB",
+    "decimals": 18,
+    "phantomQuote": "15839080000000000000",
+    "graduationThreshold": "39597700000000000000"
+   },
+   {
+    "pairToken": "0xa304BD78e739C0F777202B3eB73Ac3736d1df801",
+    "symbol": "AMATB",
+    "decimals": 18,
+    "phantomQuote": "9490257487116002497",
+    "graduationThreshold": "23725643717790006243"
+   },
+   {
+    "pairToken": "0x75Fd4cF6f8392E41E70391D60c90C0D5211603a1",
+    "symbol": "AMDB",
+    "decimals": 18,
+    "phantomQuote": "7933360000000000000",
+    "graduationThreshold": "19833400000000000000"
+   },
+   {
+    "pairToken": "0x1a4b499833A79A09ad7Cf1D42D7DacF71e92eb00",
+    "symbol": "AMZNB",
+    "decimals": 18,
+    "phantomQuote": "16101760000000000000",
+    "graduationThreshold": "40254400000000000000"
+   },
+   {
+    "pairToken": "0xD42A79ebb7F527F40fAecD196FFB47aD5e8D6f8C",
+    "symbol": "ARMB",
+    "decimals": 18,
+    "phantomQuote": "16540560000000000000",
+    "graduationThreshold": "41351400000000000000"
+   },
+   {
+    "pairToken": "0xFbfB4f79cFB4C34DCd7C82Bdee5A0Fa199B2e7f9",
+    "symbol": "ASMLB",
+    "decimals": 18,
+    "phantomQuote": "2513400000000000000",
+    "graduationThreshold": "6283500000000000000"
+   },
+   {
+    "pairToken": "0x58b6F5fEeb8436489F5bf4a56619092B1FA8E777",
+    "symbol": "ASTSB",
+    "decimals": 18,
+    "phantomQuote": "68061920000000000000",
+    "graduationThreshold": "170154800000000000000"
+   },
+   {
+    "pairToken": "0x76682c454467b3A1150Ad8b6a92FC5eE2C21d7eD",
+    "symbol": "AVGOB",
+    "decimals": 18,
+    "phantomQuote": "11790000000000000000",
+    "graduationThreshold": "29475000000000000000"
+   },
+   {
+    "pairToken": "0x9BDC8B470dbf89DbCb123587C6f5E49cCA3463BE",
+    "symbol": "AXTIB",
+    "decimals": 18,
+    "phantomQuote": "69324080000000000000",
+    "graduationThreshold": "173310200000000000000"
+   },
+   {
+    "pairToken": "0x4eF9d3062c7F6ebA4AAE4990c5036598C6eff4ec",
+    "symbol": "BABAB",
+    "decimals": 18,
+    "phantomQuote": "36583120000000000000",
+    "graduationThreshold": "91457800000000000000"
+   },
+   {
+    "pairToken": "0x5519de00F5388c17d886b97Cb5D2D43a812a82bC",
+    "symbol": "BEB",
+    "decimals": 18,
+    "phantomQuote": "15423160000000000000",
+    "graduationThreshold": "38557900000000000000"
+   },
+   {
+    "pairToken": "0x3548Da95a9eFFE481e8604664d75e95821e557F5",
+    "symbol": "BMNRB",
+    "decimals": 18,
+    "phantomQuote": "169491520000000000000",
+    "graduationThreshold": "423728800000000000000"
+   },
+   {
+    "pairToken": "0x4902C5ebc598265Ed2212b559B042De8a5Eeec3f",
+    "symbol": "BNCB",
+    "decimals": 18,
+    "phantomQuote": "814663960000000000000",
+    "graduationThreshold": "2036659900000000000000"
+   },
+   {
+    "pairToken": "0xe81C6bB0266cd68B4F17278531Dd03eA1F12dA4E",
+    "symbol": "CBRSB",
+    "decimals": 18,
+    "phantomQuote": "21735600000000000000",
+    "graduationThreshold": "54339000000000000000"
+   },
+   {
+    "pairToken": "0x5131859a059B2446AbeeFe0f5d313b3c54Ff3D36",
+    "symbol": "COHRB",
+    "decimals": 18,
+    "phantomQuote": "14750880000000000000",
+    "graduationThreshold": "36877200000000000000"
+   },
+   {
+    "pairToken": "0x585BDE7C54ABB5cCD7791F923D6c2187635f3952",
+    "symbol": "COINB",
+    "decimals": 18,
+    "phantomQuote": "23240960000000000000",
+    "graduationThreshold": "58102400000000000000"
+   },
+   {
+    "pairToken": "0x80f3D493EBCe97e343c53D29a137942416B4ffC0",
+    "symbol": "CRCLB",
+    "decimals": 18,
+    "phantomQuote": "46349960000000000000",
+    "graduationThreshold": "115874900000000000000"
+   },
+   {
+    "pairToken": "0x6E7D451F9D30327D32020f116Fa79C23B24E9c8D",
+    "symbol": "CRDOB",
+    "decimals": 18,
+    "phantomQuote": "26597520000000000000",
+    "graduationThreshold": "66493800000000000000"
+   },
+   {
+    "pairToken": "0x8C433eCa1be0e2a357015602F63751C768F6f643",
+    "symbol": "CRMB",
+    "decimals": 18,
+    "phantomQuote": "15646400000000000000",
+    "graduationThreshold": "39116000000000000000"
+   },
+   {
+    "pairToken": "0x814981CF5df4a14D4D7328f9ABf0d02e9ED54CD1",
+    "symbol": "CRWDB",
+    "decimals": 18,
+    "phantomQuote": "16495520000000000000",
+    "graduationThreshold": "41238800000000000000"
+   },
+   {
+    "pairToken": "0x33E7317e17838fEE56b10Fe8D0B9cA6CA3090c95",
+    "symbol": "CRWVB",
+    "decimals": 18,
+    "phantomQuote": "49431520000000000000",
+    "graduationThreshold": "123578800000000000000"
+   },
+   {
+    "pairToken": "0x0e7A51966c66648999d506e1372EFDeA1B78cb0B",
+    "symbol": "DELLB",
+    "decimals": 18,
+    "phantomQuote": "7359560000000000000",
+    "graduationThreshold": "18398900000000000000"
+   },
+   {
+    "pairToken": "0xF2ec508422174Ee564de98187db9359D318AFB6b",
+    "symbol": "DJTB",
+    "decimals": 18,
+    "phantomQuote": "466200480000000000000",
+    "graduationThreshold": "1165501200000000000000"
+   },
+   {
+    "pairToken": "0x93862d63fd9Fd488B1328E9b47717d75e994a84B",
+    "symbol": "DRAMB",
+    "decimals": 18,
+    "phantomQuote": "72714040000000000000",
+    "graduationThreshold": "181785100000000000000"
+   },
+   {
+    "pairToken": "0xBE82F76637DBA2C114C41Df856c2C51e522E2Cb8",
+    "symbol": "EWYB",
+    "decimals": 18,
+    "phantomQuote": "22664160000000000000",
+    "graduationThreshold": "56660400000000000000"
+   },
+   {
+    "pairToken": "0x4af1D41cd9dD950dcA43984b43aaA2A8702714Ac",
+    "symbol": "FLNCB",
+    "decimals": 18,
+    "phantomQuote": "430107520000000000000",
+    "graduationThreshold": "1075268800000000000000"
+   },
+   {
+    "pairToken": "0x740e075cBbEa22a082B9d6679e65e82767875b6A",
+    "symbol": "GLWB",
+    "decimals": 18,
+    "phantomQuote": "27825058181308325238",
+    "graduationThreshold": "69562645453270813097"
+   },
+   {
+    "pairToken": "0x46cEeFDa28Dd7207059ed19B0acdc026955bb15C",
+    "symbol": "GMEB",
+    "decimals": 18,
+    "phantomQuote": "186567160000000000000",
+    "graduationThreshold": "466417900000000000000"
+   },
+   {
+    "pairToken": "0x3F53De71c126BdaBAe20f9cD64848d317f6C3238",
+    "symbol": "GOOGLB",
+    "decimals": 18,
+    "phantomQuote": "11589339612148075592",
+    "graduationThreshold": "28973349030370188982"
+   },
+   {
+    "pairToken": "0x20CCe6656E5F7F79f280E2D0F5dB55b401BDbfCe",
+    "symbol": "GSB",
+    "decimals": 18,
+    "phantomQuote": "4081656739014687526",
+    "graduationThreshold": "10204141847536718817"
+   },
+   {
+    "pairToken": "0xee6F4bcc88C2C8583d5a65c7D0C877b464100711",
+    "symbol": "HIMSB",
+    "decimals": 18,
+    "phantomQuote": "143626560000000000000",
+    "graduationThreshold": "359066400000000000000"
+   },
+   {
+    "pairToken": "0xA394dCEa3fd3847fD793afBFd163E2e3858B7c65",
+    "symbol": "HOODB",
+    "decimals": 18,
+    "phantomQuote": "36215480000000000000",
+    "graduationThreshold": "90538700000000000000"
+   },
+   {
+    "pairToken": "0xfA273B076Feb8c0FB34e554ae341082323D016A3",
+    "symbol": "IBMB",
+    "decimals": 18,
+    "phantomQuote": "16024783114673548536",
+    "graduationThreshold": "40061957786683871340"
+   },
+   {
+    "pairToken": "0xe614E2fc6C787035FF51f452e8E826Bfd32D5283",
+    "symbol": "INTCB",
+    "decimals": 18,
+    "phantomQuote": "41177680000000000000",
+    "graduationThreshold": "102944200000000000000"
+   },
+   {
+    "pairToken": "0x0735D9904b7e34e6fe39B0f66E00c111b3f2b681",
+    "symbol": "INTWB",
+    "decimals": 18,
+    "phantomQuote": "189214760000000000000",
+    "graduationThreshold": "473036900000000000000"
+   },
+   {
+    "pairToken": "0xfdc2F2caB77b28f7Ef6c819A404706cfA9bCA33b",
+    "symbol": "IRENB",
+    "decimals": 18,
+    "phantomQuote": "96200080000000000000",
+    "graduationThreshold": "240500200000000000000"
+   },
+   {
+    "pairToken": "0x1FFAD32d69c5FEAd99f88C25ca0191Edc3757636",
+    "symbol": "KORUB",
+    "decimals": 18,
+    "phantomQuote": "215053760000000000000",
+    "graduationThreshold": "537634400000000000000"
+   },
+   {
+    "pairToken": "0x64748BeA17b6D19e242ADf20425DE2440c656142",
+    "symbol": "LITEB",
+    "decimals": 18,
+    "phantomQuote": "4767800000000000000",
+    "graduationThreshold": "11919500000000000000"
+   },
+   {
+    "pairToken": "0x7425889FE94F9d693E8daefE88BCCed6AcFEf4c0",
+    "symbol": "METAB",
+    "decimals": 18,
+    "phantomQuote": "5968000000000000000",
+    "graduationThreshold": "14920000000000000000"
+   },
+   {
+    "pairToken": "0x5fd86da9B05abE396fe9d02a4A213A7c00556503",
+    "symbol": "MRNAB",
+    "decimals": 18,
+    "phantomQuote": "27822200000000000000",
+    "graduationThreshold": "69555500000000000000"
+   },
+   {
+    "pairToken": "0x16cd4fe7e8880ECc3ba222795229E20489fc2C76",
+    "symbol": "MRVLB",
+    "decimals": 18,
+    "phantomQuote": "18042400000000000000",
+    "graduationThreshold": "45106000000000000000"
+   },
+   {
+    "pairToken": "0x80106cb3EAD06659A5ad19DF39D9b4733863B9b0",
+    "symbol": "MSFTB",
+    "decimals": 18,
+    "phantomQuote": "8035801239763025689",
+    "graduationThreshold": "20089503099407564223"
+   },
+   {
+    "pairToken": "0xE87afb3076AeB0f9B14E368DE8145ae6a2826A14",
+    "symbol": "MSTRB",
+    "decimals": 18,
+    "phantomQuote": "30864200000000000000",
+    "graduationThreshold": "77160500000000000000"
+   },
+   {
+    "pairToken": "0xcdf2f3e0fa43C47A6662a91C9E4a7C5f69762699",
+    "symbol": "MUB",
+    "decimals": 18,
+    "phantomQuote": "4311736434139952902",
+    "graduationThreshold": "10779341085349882257"
+   },
+   {
+    "pairToken": "0x0bB3fA77E0809f42948E435F04883C25415e8263",
+    "symbol": "MUUB",
+    "decimals": 18,
+    "phantomQuote": "141342760000000000000",
+    "graduationThreshold": "353356900000000000000"
+   },
+   {
+    "pairToken": "0x7C26a12f20507E2ceE22CeEBed9e88FDA47f866c",
+    "symbol": "MVLLB",
+    "decimals": 18,
+    "phantomQuote": "156067120000000000000",
+    "graduationThreshold": "390167800000000000000"
+   },
+   {
+    "pairToken": "0xE256BC2A4F5297F8ba6f043F180a46300eCbCbB1",
+    "symbol": "NBISB",
+    "decimals": 18,
+    "phantomQuote": "19289200000000000000",
+    "graduationThreshold": "48223000000000000000"
+   },
+   {
+    "pairToken": "0xD6829Ea836b6FA224d099D40E54B31262f874631",
+    "symbol": "NFLXB",
+    "decimals": 18,
+    "phantomQuote": "51347880000000000000",
+    "graduationThreshold": "128369700000000000000"
+   },
+   {
+    "pairToken": "0x7c4d7a180D737Dd5A70d8065a90E6746a69C37EA",
+    "symbol": "NOKB",
+    "decimals": 18,
+    "phantomQuote": "405551271224607398274",
+    "graduationThreshold": "1013878178061518495686"
+   },
+   {
+    "pairToken": "0x02Fca66C1D1aFB4E2A7884261eB00F63598a7436",
+    "symbol": "NVDAB",
+    "decimals": 18,
+    "phantomQuote": "18838139712217239425",
+    "graduationThreshold": "47095349280543098564"
+   },
+   {
+    "pairToken": "0x4684D9887fC1c71cBa7baB8E88835CEC217eB598",
+    "symbol": "ORCLB",
+    "decimals": 18,
+    "phantomQuote": "28500160000000000000",
+    "graduationThreshold": "71250400000000000000"
+   },
+   {
+    "pairToken": "0x0Ca5D51D0277Bd006fd9607d3E560785EBad8222",
+    "symbol": "PLTRB",
+    "decimals": 18,
+    "phantomQuote": "23180360000000000000",
+    "graduationThreshold": "57950900000000000000"
+   },
+   {
+    "pairToken": "0x2806a561fC1F9259B2d54A281796Bde0D92762aE",
+    "symbol": "PYPLB",
+    "decimals": 18,
+    "phantomQuote": "74204166629731775465",
+    "graduationThreshold": "185510416574329438664"
+   },
+   {
+    "pairToken": "0x5F7A56e877B9130608Bf8BE962621011182fEfE1",
+    "symbol": "QCOMB",
+    "decimals": 18,
+    "phantomQuote": "21218517899585717762",
+    "graduationThreshold": "53046294748964294407"
+   },
+   {
+    "pairToken": "0xd721c192d612Db77621DF57A9fAb38418033c02E",
+    "symbol": "QNTB",
+    "decimals": 18,
+    "phantomQuote": "82219920000000000000",
+    "graduationThreshold": "205549800000000000000"
+   },
+   {
+    "pairToken": "0x205812CdBed920aFf76C6580abD681a46D11efc7",
+    "symbol": "QQQB",
+    "decimals": 18,
+    "phantomQuote": "5677480000000000000",
+    "graduationThreshold": "14193700000000000000"
+   },
+   {
+    "pairToken": "0x41622a9125A22767Df8C1dC79FC17299BAc4Bd0b",
+    "symbol": "RDDTB",
+    "decimals": 18,
+    "phantomQuote": "25057960000000000000",
+    "graduationThreshold": "62644900000000000000"
+   },
+   {
+    "pairToken": "0xC8Da12cbCCE7c45180692a6420b0076e03a5179a",
+    "symbol": "RKLBB",
+    "decimals": 18,
+    "phantomQuote": "62942560000000000000",
+    "graduationThreshold": "157356400000000000000"
+   },
+   {
+    "pairToken": "0xCA750eF65f295BBECd685Abf54e82CAf297BDB61",
+    "symbol": "SKHYB",
+    "decimals": 18,
+    "phantomQuote": "22879360000000000000",
+    "graduationThreshold": "57198400000000000000"
+   },
+   {
+    "pairToken": "0x387dEa1D2772D716d081A29116f3EfFA0fFE1F36",
+    "symbol": "SMCIB",
+    "decimals": 18,
+    "phantomQuote": "112233440000000000000",
+    "graduationThreshold": "280583600000000000000"
+   },
+   {
+    "pairToken": "0xBE1fceD7047fdCE935F45700727845df2c76877a",
+    "symbol": "SMHB",
+    "decimals": 18,
+    "phantomQuote": "7378560000000000000",
+    "graduationThreshold": "18446400000000000000"
+   },
+   {
+    "pairToken": "0x3eE4dF61bd4F867E349BEaE8bFE07bc31b4850fb",
+    "symbol": "SNDKB",
+    "decimals": 18,
+    "phantomQuote": "2612840000000000000",
+    "graduationThreshold": "6532100000000000000"
+   },
+   {
+    "pairToken": "0x9e82e3da8f1115B73d24bB24113ab836FfDAb6b6",
+    "symbol": "SNXXB",
+    "decimals": 18,
+    "phantomQuote": "299850080000000000000",
+    "graduationThreshold": "749625200000000000000"
+   },
+   {
+    "pairToken": "0xd97d097a89113fa59b76c572E5b2Eb647E8eefaf",
+    "symbol": "SOXLB",
+    "decimals": 18,
+    "phantomQuote": "39093040000000000000",
+    "graduationThreshold": "97732600000000000000"
+   },
+   {
+    "pairToken": "0xE28Cd11C99AF2df76bb8aDA4Cd0ef3904378280F",
+    "symbol": "SOXSB",
+    "decimals": 18,
+    "phantomQuote": "78277880000000000000",
+    "graduationThreshold": "195694700000000000000"
+   },
+   {
+    "pairToken": "0xbe9D156892E55e7154BcD3cB0FEA677F9D3103E1",
+    "symbol": "SPCXB",
+    "decimals": 18,
+    "phantomQuote": "27876520000000000000",
+    "graduationThreshold": "69691300000000000000"
+   },
+   {
+    "pairToken": "0x7138b48df7D98D7e3cc221BfE7192D0a178182D8",
+    "symbol": "SPYB",
+    "decimals": 18,
+    "phantomQuote": "5281280000000000000",
+    "graduationThreshold": "13203200000000000000"
+   },
+   {
+    "pairToken": "0x25e572B466D152604D9E6C3e53B432B978825342",
+    "symbol": "SQQQB",
+    "decimals": 18,
+    "phantomQuote": "98473640000000000000",
+    "graduationThreshold": "246184100000000000000"
+   },
+   {
+    "pairToken": "0x2E065f65F1699964f4092De1D39A8EFe6C8d6f32",
+    "symbol": "STXB",
+    "decimals": 18,
+    "phantomQuote": "5182640000000000000",
+    "graduationThreshold": "12956600000000000000"
+   },
+   {
+    "pairToken": "0x462B5F13B7C7748279358962925c5De83BB9E598",
+    "symbol": "TQQQB",
+    "decimals": 18,
+    "phantomQuote": "58910160000000000000",
+    "graduationThreshold": "147275400000000000000"
+   },
+   {
+    "pairToken": "0x5b1910eAaD6450E50f816082Aa078C41F10C292f",
+    "symbol": "TSLAB",
+    "decimals": 18,
+    "phantomQuote": "11217680000000000000",
+    "graduationThreshold": "28044200000000000000"
+   },
+   {
+    "pairToken": "0xAB78b89B5bb00236Be0B4B20704cBfa04EfC711c",
+    "symbol": "TSMB",
+    "decimals": 18,
+    "phantomQuote": "9647319677762826031",
+    "graduationThreshold": "24118299194407065078"
+   },
+   {
+    "pairToken": "0xcd345D4450e04cDeF422A60b97D9265d24e0bcEE",
+    "symbol": "USARB",
+    "decimals": 18,
+    "phantomQuote": "259740240000000000000",
+    "graduationThreshold": "649350600000000000000"
+   },
+   {
+    "pairToken": "0xebe29695F8047C13d36e7a790ca8c1b239FfAD1C",
+    "symbol": "WDCB",
+    "decimals": 18,
+    "phantomQuote": "9707495969408198864",
+    "graduationThreshold": "24268739923520497161"
+   },
+   {
+    "pairToken": "0x390a684EF9cADE28A7AD0DFa61AB1Eb3842618c4",
+    "symbol": "AAPLon",
+    "decimals": 18,
+    "phantomQuote": "12031560000000000000",
+    "graduationThreshold": "30078900000000000000"
+   },
+   {
+    "pairToken": "0x8677aBAD7B458bF16a0fB2676DFC7d3f55Ac202A",
+    "symbol": "ABBVon",
+    "decimals": 18,
+    "phantomQuote": "14959280000000000000",
+    "graduationThreshold": "37398200000000000000"
+   },
+   {
+    "pairToken": "0xEf80743f78d98FC2B47a2253B293152ce8B879ba",
+    "symbol": "ABNBon",
+    "decimals": 18,
+    "phantomQuote": "23764240000000000000",
+    "graduationThreshold": "59410600000000000000"
+   },
+   {
+    "pairToken": "0x5a20886b575058dd7299785f0Ea9b1172942a3E0",
+    "symbol": "ABTon",
+    "decimals": 18,
+    "phantomQuote": "38584560000000000000",
+    "graduationThreshold": "96461400000000000000"
+   },
+   {
+    "pairToken": "0x7aF44d51d1fb88c5b74Fc71d3cba649Bb8099D14",
+    "symbol": "ACNon",
+    "decimals": 18,
+    "phantomQuote": "20063520000000000000",
+    "graduationThreshold": "50158800000000000000"
+   },
+   {
+    "pairToken": "0xcB22Db0EcB6fe58B7B47db443dCFdfDFbF729CEf",
+    "symbol": "ADBEon",
+    "decimals": 18,
+    "phantomQuote": "15518320000000000000",
+    "graduationThreshold": "38795800000000000000"
+   },
+   {
+    "pairToken": "0x0E246E05212DbBD78A354C072a92B4e5723B2fa0",
+    "symbol": "ADIon",
+    "decimals": 18,
+    "phantomQuote": "11000840000000000000",
+    "graduationThreshold": "27502100000000000000"
+   },
+   {
+    "pairToken": "0x08cE97F3D5Cf11E577D091ab048bC5e2EaE3FABB",
+    "symbol": "AGGon",
+    "decimals": 18,
+    "phantomQuote": "40197120000000000000",
+    "graduationThreshold": "100492800000000000000"
+   },
+   {
+    "pairToken": "0x5ecC352C4640f1d26BD231dbBd171f40f7d0Eec6",
+    "symbol": "AMATon",
+    "decimals": 18,
+    "phantomQuote": "9473640000000000000",
+    "graduationThreshold": "23684100000000000000"
+   },
+   {
+    "pairToken": "0x9f16E46c73b43BDB70861247d537bEE4eA18F639",
+    "symbol": "AMDon",
+    "decimals": 18,
+    "phantomQuote": "7933360000000000000",
+    "graduationThreshold": "19833400000000000000"
+   },
+   {
+    "pairToken": "0x7a5bD36047A9D15C90FA79b0654De8dd9d6eBbB1",
+    "symbol": "AMEon",
+    "decimals": 18,
+    "phantomQuote": "17061200000000000000",
+    "graduationThreshold": "42653000000000000000"
+   },
+   {
+    "pairToken": "0x4553cFe1C09f37f38b12dC509F676964e392F8Fc",
+    "symbol": "AMZNon",
+    "decimals": 18,
+    "phantomQuote": "16101760000000000000",
+    "graduationThreshold": "40254400000000000000"
+   },
+   {
+    "pairToken": "0x538e2838f9ebC9B891399DF4a8dcc42890D9dc20",
+    "symbol": "ANETon",
+    "decimals": 18,
+    "phantomQuote": "20742600000000000000",
+    "graduationThreshold": "51856500000000000000"
+   },
+   {
+    "pairToken": "0x70AfC3a600f843d2018dF16B0b316E4BC9c603E9",
+    "symbol": "APHon",
+    "decimals": 18,
+    "phantomQuote": "51513200000000000000",
+    "graduationThreshold": "128783000000000000000"
+   },
+   {
+    "pairToken": "0x5630B5741A33371D9d935283849A16dC808f7F3A",
+    "symbol": "APOon",
+    "decimals": 18,
+    "phantomQuote": "31134320000000000000",
+    "graduationThreshold": "77835800000000000000"
+   },
+   {
+    "pairToken": "0x527C6436E1eAa4f2065CDE4090F798Cb5D031dD6",
+    "symbol": "ARMon",
+    "decimals": 18,
+    "phantomQuote": "16540560000000000000",
+    "graduationThreshold": "41351400000000000000"
+   },
+   {
+    "pairToken": "0xb034f6Cb52b7f2Fd5a7EeeffCa6b9aDCD6b9A6F6",
+    "symbol": "ASMLon",
+    "decimals": 18,
+    "phantomQuote": "2500040000000000000",
+    "graduationThreshold": "6250100000000000000"
+   },
+   {
+    "pairToken": "0x0ED2E3180EDf393e6bf8Db124bD15DDD54dE150A",
+    "symbol": "AVGOon",
+    "decimals": 18,
+    "phantomQuote": "11729760000000000000",
+    "graduationThreshold": "29324400000000000000"
+   },
+   {
+    "pairToken": "0xD803f8777187D6DEe1eA57854aEB957043fb1675",
+    "symbol": "AXPon",
+    "decimals": 18,
+    "phantomQuote": "12238320000000000000",
+    "graduationThreshold": "30595800000000000000"
+   },
+   {
+    "pairToken": "0xd5964f3fcee8D649995AB88F04b8982539c282D2",
+    "symbol": "BABAon",
+    "decimals": 18,
+    "phantomQuote": "36259920000000000000",
+    "graduationThreshold": "90649800000000000000"
+   },
+   {
+    "pairToken": "0xd615468088B19FB9d4F03CB3CE9E33876fF3Db99",
+    "symbol": "BACon",
+    "decimals": 18,
+    "phantomQuote": "66698480000000000000",
+    "graduationThreshold": "166746200000000000000"
+   },
+   {
+    "pairToken": "0x17D03aE104a9D12E9E5794Efb109B817Dd7f3404",
+    "symbol": "BEon",
+    "decimals": 18,
+    "phantomQuote": "15423160000000000000",
+    "graduationThreshold": "38557900000000000000"
+   },
+   {
+    "pairToken": "0x24F5471183eA549987f245D6ce236B6108869C92",
+    "symbol": "BLKon",
+    "decimals": 18,
+    "phantomQuote": "3724080000000000000",
+    "graduationThreshold": "9310200000000000000"
+   },
+   {
+    "pairToken": "0x274B0cB6DB9473245A31cDEA9B789786f4108e4B",
+    "symbol": "CATon",
+    "decimals": 18,
+    "phantomQuote": "5083240000000000000",
+    "graduationThreshold": "12708100000000000000"
+   },
+   {
+    "pairToken": "0x65D84F0990B7394209d591380C2952c83D778aA3",
+    "symbol": "CEGon",
+    "decimals": 18,
+    "phantomQuote": "15343480000000000000",
+    "graduationThreshold": "38358700000000000000"
+   },
+   {
+    "pairToken": "0x53a8c5fc5643b437779742f494691e6b7C660a8b",
+    "symbol": "COFon",
+    "decimals": 18,
+    "phantomQuote": "19181680000000000000",
+    "graduationThreshold": "47954200000000000000"
+   },
+   {
+    "pairToken": "0x0585756aAFB241b0f8A9Df62Db26c566091Bde0b",
+    "symbol": "COHRon",
+    "decimals": 18,
+    "phantomQuote": "14750880000000000000",
+    "graduationThreshold": "36877200000000000000"
+   },
+   {
+    "pairToken": "0x0D586b51A90Dc999f9bB6A0506Da7F034a1D3A2E",
+    "symbol": "COPon",
+    "decimals": 18,
+    "phantomQuote": "27900160000000000000",
+    "graduationThreshold": "69750400000000000000"
+   },
+   {
+    "pairToken": "0xD04a2BB053277721a8321d7441eEd5b42FDF7250",
+    "symbol": "CRMon",
+    "decimals": 18,
+    "phantomQuote": "15554720000000000000",
+    "graduationThreshold": "38886800000000000000"
+   },
+   {
+    "pairToken": "0xe6837794FBC6DD024733A1A31F86061296FA2752",
+    "symbol": "CRWDon",
+    "decimals": 18,
+    "phantomQuote": "4123880000000000000",
+    "graduationThreshold": "10309700000000000000"
+   },
+   {
+    "pairToken": "0x34304f2f7cC487eb4186e6D69F5905A613474aA2",
+    "symbol": "CSCOon",
+    "decimals": 18,
+    "phantomQuote": "35829200000000000000",
+    "graduationThreshold": "89573000000000000000"
+   },
+   {
+    "pairToken": "0xc145DC2eBDbe8EAD1fEcDeBF46c76Eb1Fdd0104D",
+    "symbol": "CVNAon",
+    "decimals": 18,
+    "phantomQuote": "11958160000000000000",
+    "graduationThreshold": "29895400000000000000"
+   },
+   {
+    "pairToken": "0xD3113A0AD20a46F6a662C63fe8E637f7713E59c7",
+    "symbol": "CVXon",
+    "decimals": 18,
+    "phantomQuote": "17876880000000000000",
+    "graduationThreshold": "44692200000000000000"
+   },
+   {
+    "pairToken": "0x8dDB97556F6ae98B4d408c56B167139fE1Cbe3e8",
+    "symbol": "Con",
+    "decimals": 18,
+    "phantomQuote": "29069200000000000000",
+    "graduationThreshold": "72673000000000000000"
+   },
+   {
+    "pairToken": "0x7567c2a46BCE46373b454682F3d95e6535BDe144",
+    "symbol": "DASHon",
+    "decimals": 18,
+    "phantomQuote": "20175520000000000000",
+    "graduationThreshold": "50438800000000000000"
+   },
+   {
+    "pairToken": "0xf26518958935654878De15BE7bC79A26971583Ba",
+    "symbol": "DELLon",
+    "decimals": 18,
+    "phantomQuote": "7359560000000000000",
+    "graduationThreshold": "18398900000000000000"
+   },
+   {
+    "pairToken": "0x90cCbB75d61Cb65cd73a3ABb5Df04a75961612b7",
+    "symbol": "DEon",
+    "decimals": 18,
+    "phantomQuote": "5811000000000000000",
+    "graduationThreshold": "14527500000000000000"
+   },
+   {
+    "pairToken": "0xeEe9eeE593cB8f7946260B4066CBa7907f40ACFa",
+    "symbol": "DISon",
+    "decimals": 18,
+    "phantomQuote": "37212320000000000000",
+    "graduationThreshold": "93030800000000000000"
+   },
+   {
+    "pairToken": "0x38B9A53bfDc5dba58a29bD6992341927C2fca637",
+    "symbol": "EFAon",
+    "decimals": 18,
+    "phantomQuote": "37067640000000000000",
+    "graduationThreshold": "92669100000000000000"
+   },
+   {
+    "pairToken": "0x60B273bDf00a9A52238Ca706257f61efc55bDeE0",
+    "symbol": "EMRon",
+    "decimals": 18,
+    "phantomQuote": "27210880000000000000",
+    "graduationThreshold": "68027200000000000000"
+   },
+   {
+    "pairToken": "0x5397cB3f1E419050D9d7160756dE0f4eD4f5f898",
+    "symbol": "ENBon",
+    "decimals": 18,
+    "phantomQuote": "82713000000000000000",
+    "graduationThreshold": "206782500000000000000"
+   },
+   {
+    "pairToken": "0xE4E12c9CEc3e8cAE405202A97f66AFA695075fa0",
+    "symbol": "EQIXon",
+    "decimals": 18,
+    "phantomQuote": "3913520000000000000",
+    "graduationThreshold": "9783800000000000000"
+   },
+   {
+    "pairToken": "0x4697b2A050f7B5A8e1ebc27c325f9D78D094f041",
+    "symbol": "ETNon",
+    "decimals": 18,
+    "phantomQuote": "10154280000000000000",
+    "graduationThreshold": "25385700000000000000"
+   },
+   {
+    "pairToken": "0xE3b17E6D290A0F28bd32aF4064637057627004D5",
+    "symbol": "FCXon",
+    "decimals": 18,
+    "phantomQuote": "57466840000000000000",
+    "graduationThreshold": "143667100000000000000"
+   },
+   {
+    "pairToken": "0xb1ABA049C42B6fe811766EBA61F51f11C57acC4b",
+    "symbol": "Fon",
+    "decimals": 18,
+    "phantomQuote": "289329920000000000000",
+    "graduationThreshold": "723324800000000000000"
+   },
+   {
+    "pairToken": "0x5d1a9d8aa362a6424b65Fcb601e52FefcE5b4EFA",
+    "symbol": "GDon",
+    "decimals": 18,
+    "phantomQuote": "11154480000000000000",
+    "graduationThreshold": "27886200000000000000"
+   },
+   {
+    "pairToken": "0x2Aea1D415D45CCF3EaBE565d45DcaF4ea2035b9c",
+    "symbol": "GEVon",
+    "decimals": 18,
+    "phantomQuote": "4527440000000000000",
+    "graduationThreshold": "11318600000000000000"
+   },
+   {
+    "pairToken": "0x5151A22421Ed4277F1e4ca4785a07b035D548a36",
+    "symbol": "GEon",
+    "decimals": 18,
+    "phantomQuote": "12981000000000000000",
+    "graduationThreshold": "32452500000000000000"
+   },
+   {
+    "pairToken": "0xfA9a1E901085e269f6D428F79Cd5252d8b919344",
+    "symbol": "GLDon",
+    "decimals": 18,
+    "phantomQuote": "10148440000000000000",
+    "graduationThreshold": "25371100000000000000"
+   },
+   {
+    "pairToken": "0x25a4DbAE9a0Cd8C75656D6b50FFDf4900CC20d8f",
+    "symbol": "GLWon",
+    "decimals": 18,
+    "phantomQuote": "27860960000000000000",
+    "graduationThreshold": "69652400000000000000"
+   },
+   {
+    "pairToken": "0x091FC7778e6932d4009B087B191D1EE3bac5729A",
+    "symbol": "GOOGLon",
+    "decimals": 18,
+    "phantomQuote": "11571600000000000000",
+    "graduationThreshold": "28929000000000000000"
+   },
+   {
+    "pairToken": "0x0D4f9b25F81163Fb4840BA4F434672543823000C",
+    "symbol": "GSon",
+    "decimals": 18,
+    "phantomQuote": "4039960000000000000",
+    "graduationThreshold": "10099900000000000000"
+   },
+   {
+    "pairToken": "0x19601179A60f55Ff6636F5D1A8b6671053Bd60a8",
+    "symbol": "HOODon",
+    "decimals": 18,
+    "phantomQuote": "36215480000000000000",
+    "graduationThreshold": "90538700000000000000"
+   },
+   {
+    "pairToken": "0x492E678c1ea048C70eDc635047cdBB87FF5362a2",
+    "symbol": "HPEon",
+    "decimals": 18,
+    "phantomQuote": "71581960000000000000",
+    "graduationThreshold": "178954900000000000000"
+   },
+   {
+    "pairToken": "0xcB2a0F46f67dC4c58a316F1c008EDef5c2311795",
+    "symbol": "IAUon",
+    "decimals": 18,
+    "phantomQuote": "49517200000000000000",
+    "graduationThreshold": "123793000000000000000"
+   },
+   {
+    "pairToken": "0x68B07cEf227Cea1b2b6683921C8c825cd5C69Ec7",
+    "symbol": "IBITon",
+    "decimals": 18,
+    "phantomQuote": "92785880000000000000",
+    "graduationThreshold": "231964700000000000000"
+   },
+   {
+    "pairToken": "0xE8ff70859Ce4cbd72E4352b4fb45F5BF39d07464",
+    "symbol": "IBMon",
+    "decimals": 18,
+    "phantomQuote": "15746120000000000000",
+    "graduationThreshold": "39365300000000000000"
+   },
+   {
+    "pairToken": "0x918008C3d29496C37b478b611967BeaCA365aF36",
+    "symbol": "IEFAon",
+    "decimals": 18,
+    "phantomQuote": "39699360000000000000",
+    "graduationThreshold": "99248400000000000000"
+   },
+   {
+    "pairToken": "0x167E93A849A0cc479769132552B99aa1cFA0948c",
+    "symbol": "IJHon",
+    "decimals": 18,
+    "phantomQuote": "54128440000000000000",
+    "graduationThreshold": "135321100000000000000"
+   },
+   {
+    "pairToken": "0xA528CaaA2f96090e379d43F90834C75dF54D6E74",
+    "symbol": "INTCon",
+    "decimals": 18,
+    "phantomQuote": "41177680000000000000",
+    "graduationThreshold": "102944200000000000000"
+   },
+   {
+    "pairToken": "0x6E3e077A6C0E3c27fD6D00B97387D9b7Bd451BAB",
+    "symbol": "INTUon",
+    "decimals": 18,
+    "phantomQuote": "12053720000000000000",
+    "graduationThreshold": "30134300000000000000"
+   },
+   {
+    "pairToken": "0x784584933C2192Caa062E90d8140D94768CE62d8",
+    "symbol": "ISRGon",
+    "decimals": 18,
+    "phantomQuote": "10605560000000000000",
+    "graduationThreshold": "26513900000000000000"
+   },
+   {
+    "pairToken": "0xcf9CAf83053213c44dd7027Db3e1E4aC98E55f8f",
+    "symbol": "ITOTon",
+    "decimals": 18,
+    "phantomQuote": "24036880000000000000",
+    "graduationThreshold": "60092200000000000000"
+   },
+   {
+    "pairToken": "0x1104EB7e85E25eB45F88e638b0C27A06C1A91CB2",
+    "symbol": "IVVon",
+    "decimals": 18,
+    "phantomQuote": "5227320000000000000",
+    "graduationThreshold": "13068300000000000000"
+   },
+   {
+    "pairToken": "0x40755F06aB7F8dE1ab3a9413b1ef562d63DE19B1",
+    "symbol": "IWFon",
+    "decimals": 18,
+    "phantomQuote": "8280760000000000000",
+    "graduationThreshold": "20701900000000000000"
+   },
+   {
+    "pairToken": "0x500EAFc69b68Acd6F27064f9B75F1C7d91CC4d9F",
+    "symbol": "IWMon",
+    "decimals": 18,
+    "phantomQuote": "13927360000000000000",
+    "graduationThreshold": "34818400000000000000"
+   },
+   {
+    "pairToken": "0xd1F799cB9f5d0a02951b0755BeCeD6C43882712F",
+    "symbol": "JNJon",
+    "decimals": 18,
+    "phantomQuote": "14804240000000000000",
+    "graduationThreshold": "37010600000000000000"
+   },
+   {
+    "pairToken": "0x3de956D959726C448649354C6fBCa92B82dC5Ed7",
+    "symbol": "KEYSon",
+    "decimals": 18,
+    "phantomQuote": "12764880000000000000",
+    "graduationThreshold": "31912200000000000000"
+   },
+   {
+    "pairToken": "0xFc263946439b0d802bF4C5a6fCd34E2885259f91",
+    "symbol": "KLACon",
+    "decimals": 18,
+    "phantomQuote": "2374480000000000000",
+    "graduationThreshold": "5936200000000000000"
+   },
+   {
+    "pairToken": "0x405F38B90beBF1259062CF29Da299f3398662bcb",
+    "symbol": "KOon",
+    "decimals": 18,
+    "phantomQuote": "44222000000000000000",
+    "graduationThreshold": "110555000000000000000"
+   },
+   {
+    "pairToken": "0x0fAcaFB97ffDbA3cAe88512070AF49bd30674cD9",
+    "symbol": "LITEon",
+    "decimals": 18,
+    "phantomQuote": "4767800000000000000",
+    "graduationThreshold": "11919500000000000000"
+   },
+   {
+    "pairToken": "0xd09F7B75b9659b864C6F82bb00Ff096f9D277998",
+    "symbol": "LMTon",
+    "decimals": 18,
+    "phantomQuote": "7331000000000000000",
+    "graduationThreshold": "18327500000000000000"
+   },
+   {
+    "pairToken": "0x35895a1fa1AFf7FB3204fB01257409Fd75acB24C",
+    "symbol": "LRCXon",
+    "decimals": 18,
+    "phantomQuote": "14747560000000000000",
+    "graduationThreshold": "36868900000000000000"
+   },
+   {
+    "pairToken": "0x25FfDA07F585c39848dB6573E533D7585679C52d",
+    "symbol": "MAon",
+    "decimals": 18,
+    "phantomQuote": "6947400000000000000",
+    "graduationThreshold": "17368500000000000000"
+   },
+   {
+    "pairToken": "0x995ADd4bA29a628A57930a8a185c62cA044eC090",
+    "symbol": "MCDon",
+    "decimals": 18,
+    "phantomQuote": "15484840000000000000",
+    "graduationThreshold": "38712100000000000000"
+   },
+   {
+    "pairToken": "0x60a8f8e05200fF73aFde9E2caE819bF1605f0BdD",
+    "symbol": "MELIon",
+    "decimals": 18,
+    "phantomQuote": "2187040000000000000",
+    "graduationThreshold": "5467600000000000000"
+   },
+   {
+    "pairToken": "0xD7dF5863A3e742F0c767768cDfcb63f09E0422f6",
+    "symbol": "METAon",
+    "decimals": 18,
+    "phantomQuote": "5954440000000000000",
+    "graduationThreshold": "14886100000000000000"
+   },
+   {
+    "pairToken": "0x869027261075c3C239D6A26842579b93802606f4",
+    "symbol": "MRKon",
+    "decimals": 18,
+    "phantomQuote": "27540800000000000000",
+    "graduationThreshold": "68852000000000000000"
+   },
+   {
+    "pairToken": "0x01486675Da0764ee780Ea7cB65C33062E9B2D28c",
+    "symbol": "MRNAon",
+    "decimals": 18,
+    "phantomQuote": "27822200000000000000",
+    "graduationThreshold": "69555500000000000000"
+   },
+   {
+    "pairToken": "0x1501EC83FFEf405B4331CC4f73277a40fb0C627d",
+    "symbol": "MRVLon",
+    "decimals": 18,
+    "phantomQuote": "18015680000000000000",
+    "graduationThreshold": "45039200000000000000"
+   },
+   {
+    "pairToken": "0x6Bfe75D1ad432050eA973C3A3DcD88F02e2444C3",
+    "symbol": "MSFTon",
+    "decimals": 18,
+    "phantomQuote": "8000480000000000000",
+    "graduationThreshold": "20001200000000000000"
+   },
+   {
+    "pairToken": "0x7313EA16493b2f55054Df0131A3A14B043ec8992",
+    "symbol": "MSTRon",
+    "decimals": 18,
+    "phantomQuote": "30864200000000000000",
+    "graduationThreshold": "77160500000000000000"
+   },
+   {
+    "pairToken": "0x8b6ACf6041A81567f012Ff6A4C6D96d5818d74bF",
+    "symbol": "MUon",
+    "decimals": 18,
+    "phantomQuote": "4307360000000000000",
+    "graduationThreshold": "10768400000000000000"
+   },
+   {
+    "pairToken": "0xee268780473E7a0e47baC41547C6E01512555A16",
+    "symbol": "NBISon",
+    "decimals": 18,
+    "phantomQuote": "19289200000000000000",
+    "graduationThreshold": "48223000000000000000"
+   },
+   {
+    "pairToken": "0x5E63232993789601CE362e0240a299C1DfCBfbEc",
+    "symbol": "NEMon",
+    "decimals": 18,
+    "phantomQuote": "32109440000000000000",
+    "graduationThreshold": "80273600000000000000"
+   },
+   {
+    "pairToken": "0xfEb0793EEa97585Eb3a541F3FD53450D225b2B87",
+    "symbol": "NETon",
+    "decimals": 18,
+    "phantomQuote": "12223800000000000000",
+    "graduationThreshold": "30559500000000000000"
+   },
+   {
+    "pairToken": "0x7048F5227b032326cC8DBC53cF3FdDD947a2c757",
+    "symbol": "NFLXon",
+    "decimals": 18,
+    "phantomQuote": "5134800000000000000",
+    "graduationThreshold": "12837000000000000000"
+   },
+   {
+    "pairToken": "0x4D3442D884202584F1729bCA20Db05472B886B52",
+    "symbol": "NOCon",
+    "decimals": 18,
+    "phantomQuote": "7482840000000000000",
+    "graduationThreshold": "18707100000000000000"
+   },
+   {
+    "pairToken": "0xE9518CB0010C717DB69001F1418EFF9e97330137",
+    "symbol": "NOKon",
+    "decimals": 18,
+    "phantomQuote": "406504080000000000000",
+    "graduationThreshold": "1016260200000000000000"
+   },
+   {
+    "pairToken": "0xeb19c13c54B1cD48AFc62F6503375e92D5f1e856",
+    "symbol": "NOWon",
+    "decimals": 18,
+    "phantomQuote": "5637760000000000000",
+    "graduationThreshold": "14094400000000000000"
+   },
+   {
+    "pairToken": "0x282973969118F9fe39bf2FF3D8DD1EFEE82CCb11",
+    "symbol": "NTESon",
+    "decimals": 18,
+    "phantomQuote": "33076880000000000000",
+    "graduationThreshold": "82692200000000000000"
+   },
+   {
+    "pairToken": "0x2155f5344BA7763f80420dE617Af41E56De0552b",
+    "symbol": "NUEon",
+    "decimals": 18,
+    "phantomQuote": "15454760000000000000",
+    "graduationThreshold": "38636900000000000000"
+   },
+   {
+    "pairToken": "0xA9eE28C80f960B889dFbd1902055218cBa016F75",
+    "symbol": "NVDAon",
+    "decimals": 18,
+    "phantomQuote": "18835240000000000000",
+    "graduationThreshold": "47088100000000000000"
+   },
+   {
+    "pairToken": "0x08a513779f46FFb7A34F16094a94016d010128a8",
+    "symbol": "NVOon",
+    "decimals": 18,
+    "phantomQuote": "91288240000000000000",
+    "graduationThreshold": "228220600000000000000"
+   },
+   {
+    "pairToken": "0x03E4bd1Ea53f1da84513da0319D1f03dD1BBCf93",
+    "symbol": "ORCLon",
+    "decimals": 18,
+    "phantomQuote": "28275880000000000000",
+    "graduationThreshold": "70689700000000000000"
+   },
+   {
+    "pairToken": "0x01b5a4aC600bE98448DbEFBB78BcDF38262552cc",
+    "symbol": "OXYon",
+    "decimals": 18,
+    "phantomQuote": "62555120000000000000",
+    "graduationThreshold": "156387800000000000000"
+   },
+   {
+    "pairToken": "0x0eAa1a75bd682A5669AB2371A559fBD039C6b9Eb",
+    "symbol": "PANWon",
+    "decimals": 18,
+    "phantomQuote": "10664120000000000000",
+    "graduationThreshold": "26660300000000000000"
+   },
+   {
+    "pairToken": "0x2b1d5cDeCC356530a746C5754231EfaEAca64022",
+    "symbol": "PBRon",
+    "decimals": 18,
+    "phantomQuote": "177903760000000000000",
+    "graduationThreshold": "444759400000000000000"
+   },
+   {
+    "pairToken": "0xF3e82EA164CB344B2b11Bad4c24b0Ea4F7BA4714",
+    "symbol": "PDDon",
+    "decimals": 18,
+    "phantomQuote": "51229520000000000000",
+    "graduationThreshold": "128073800000000000000"
+   },
+   {
+    "pairToken": "0xf99F8f3a95257d82006183bd524efa7aaCc9Ef7A",
+    "symbol": "PEPon",
+    "decimals": 18,
+    "phantomQuote": "28730960000000000000",
+    "graduationThreshold": "71827400000000000000"
+   },
+   {
+    "pairToken": "0x8A83C31D6751833B4940b6e871c48d9A15a07b46",
+    "symbol": "PFEon",
+    "decimals": 18,
+    "phantomQuote": "136851960000000000000",
+    "graduationThreshold": "342129900000000000000"
+   },
+   {
+    "pairToken": "0x400F1e257f86D25578A0928C94dC95115F09d5c9",
+    "symbol": "PGon",
+    "decimals": 18,
+    "phantomQuote": "26599040000000000000",
+    "graduationThreshold": "66497600000000000000"
+   },
+   {
+    "pairToken": "0x9351AbD19f42101dD36025E495B98E910b255d78",
+    "symbol": "PLTRon",
+    "decimals": 18,
+    "phantomQuote": "23180360000000000000",
+    "graduationThreshold": "57950900000000000000"
+   },
+   {
+    "pairToken": "0x2418c2e1aE3B8D767594b3974D32610743f88155",
+    "symbol": "PWRon",
+    "decimals": 18,
+    "phantomQuote": "6521560000000000000",
+    "graduationThreshold": "16303900000000000000"
+   },
+   {
+    "pairToken": "0xfBD4D681C92ead6Af0E49950c8B2e47EeAcbB2dB",
+    "symbol": "QCOMon",
+    "decimals": 18,
+    "phantomQuote": "20911600000000000000",
+    "graduationThreshold": "52279000000000000000"
+   },
+   {
+    "pairToken": "0x0cdE6936d305d5B34667fC46425E852efd73559a",
+    "symbol": "QQQon",
+    "decimals": 18,
+    "phantomQuote": "5658480000000000000",
+    "graduationThreshold": "14146200000000000000"
+   },
+   {
+    "pairToken": "0x30BD85fD4286c5c9857679F5B188f737B4a7B8C0",
+    "symbol": "REGNon",
+    "decimals": 18,
+    "phantomQuote": "5157560000000000000",
+    "graduationThreshold": "12893900000000000000"
+   },
+   {
+    "pairToken": "0x111f6F2B9F1C5f3Ec841690e1deEc606086727dA",
+    "symbol": "SAPon",
+    "decimals": 18,
+    "phantomQuote": "18546840000000000000",
+    "graduationThreshold": "46367100000000000000"
+   },
+   {
+    "pairToken": "0xF15B8f7465b92799F6EE440F86B3CAB5A4dbc65A",
+    "symbol": "SCCOon",
+    "decimals": 18,
+    "phantomQuote": "20569480000000000000",
+    "graduationThreshold": "51423700000000000000"
+   },
+   {
+    "pairToken": "0xe5BA472C98b7E4695bD856290De66bDEDaffC123",
+    "symbol": "SCHWon",
+    "decimals": 18,
+    "phantomQuote": "36852520000000000000",
+    "graduationThreshold": "92131300000000000000"
+   },
+   {
+    "pairToken": "0xc008c5F579ec1450F20099c39F587547e27c7523",
+    "symbol": "SGOVon",
+    "decimals": 18,
+    "phantomQuote": "39068040000000000000",
+    "graduationThreshold": "97670100000000000000"
+   },
+   {
+    "pairToken": "0x43d0B380c33cD004a6A69aBD61843881a2de4113",
+    "symbol": "SHOPon",
+    "decimals": 18,
+    "phantomQuote": "30802400000000000000",
+    "graduationThreshold": "77006000000000000000"
+   },
+   {
+    "pairToken": "0x4268F2Bfb23A7496504AA5eD1Ee325248586299F",
+    "symbol": "SKHYon",
+    "decimals": 18,
+    "phantomQuote": "22879360000000000000",
+    "graduationThreshold": "57198400000000000000"
+   },
+   {
+    "pairToken": "0xfaDdE620010736a5074a4269894Cb52B0a9a91DE",
+    "symbol": "SLBon",
+    "decimals": 18,
+    "phantomQuote": "73800720000000000000",
+    "graduationThreshold": "184501800000000000000"
+   },
+   {
+    "pairToken": "0x4Fd67CB8CFEdc718BAc984b5936abE3330d0a2A4",
+    "symbol": "SNDKon",
+    "decimals": 18,
+    "phantomQuote": "2612840000000000000",
+    "graduationThreshold": "6532100000000000000"
+   },
+   {
+    "pairToken": "0x138ED6833ff4E8811E1FEa0D005E13726c8886F9",
+    "symbol": "SNOWon",
+    "decimals": 18,
+    "phantomQuote": "12384680000000000000",
+    "graduationThreshold": "30961700000000000000"
+   },
+   {
+    "pairToken": "0xd0a58BC9D88D3FF48C0294Cb7e45937d0E41A928",
+    "symbol": "SPCXon",
+    "decimals": 18,
+    "phantomQuote": "27876520000000000000",
+    "graduationThreshold": "69691300000000000000"
+   },
+   {
+    "pairToken": "0x55B370B704240a914f42B5bBB3195431C031f9f8",
+    "symbol": "SPGIon",
+    "decimals": 18,
+    "phantomQuote": "9204280000000000000",
+    "graduationThreshold": "23010700000000000000"
+   },
+   {
+    "pairToken": "0x50356167a4DbC38BeA6779C045e24E25fAcEdfdc",
+    "symbol": "SPOTon",
+    "decimals": 18,
+    "phantomQuote": "7165120000000000000",
+    "graduationThreshold": "17912800000000000000"
+   },
+   {
+    "pairToken": "0x6a708EAD771238919D85930b5a0f10454E1C331a",
+    "symbol": "SPYon",
+    "decimals": 18,
+    "phantomQuote": "5240840000000000000",
+    "graduationThreshold": "13102100000000000000"
+   },
+   {
+    "pairToken": "0x966EbCBA3c51E81f5CF159a1EaBeFd2327aB5E8D",
+    "symbol": "STXon",
+    "decimals": 18,
+    "phantomQuote": "5172720000000000000",
+    "graduationThreshold": "12931800000000000000"
+   },
+   {
+    "pairToken": "0x5C50fFD365c852f5e72BFBc2c1aE621e2ACa5Ece",
+    "symbol": "TELon",
+    "decimals": 18,
+    "phantomQuote": "19859000000000000000",
+    "graduationThreshold": "49647500000000000000"
+   },
+   {
+    "pairToken": "0x6F040fC3061374304BddbfdAe9d688d7C868c785",
+    "symbol": "TERon",
+    "decimals": 18,
+    "phantomQuote": "12017440000000000000",
+    "graduationThreshold": "30043600000000000000"
+   },
+   {
+    "pairToken": "0x2588F20BAd92Da8dCCE7FaC8311B5F8Ab4690E43",
+    "symbol": "TMUSon",
+    "decimals": 18,
+    "phantomQuote": "21919120000000000000",
+    "graduationThreshold": "54797800000000000000"
+   },
+   {
+    "pairToken": "0x2494b603319d4D9F9715c9f4496d9E0364B59d93",
+    "symbol": "TSLAon",
+    "decimals": 18,
+    "phantomQuote": "11217680000000000000",
+    "graduationThreshold": "28044200000000000000"
+   },
+   {
+    "pairToken": "0xC37042A7a4fa510D8884a433762aB87257B91965",
+    "symbol": "TSMon",
+    "decimals": 18,
+    "phantomQuote": "9578400000000000000",
+    "graduationThreshold": "23946000000000000000"
+   },
+   {
+    "pairToken": "0x0Afa28A7Ac4E44b1F771515c200F4d67B1f5e8d0",
+    "symbol": "TTon",
+    "decimals": 18,
+    "phantomQuote": "9462320000000000000",
+    "graduationThreshold": "23655800000000000000"
+   },
+   {
+    "pairToken": "0xCa3a5c955F1F01f20aAcF9501B03E4aa235e478B",
+    "symbol": "TXNon",
+    "decimals": 18,
+    "phantomQuote": "15008960000000000000",
+    "graduationThreshold": "37522400000000000000"
+   },
+   {
+    "pairToken": "0x4255279aF47cf10eFB9A5C8839F90170F4EF759f",
+    "symbol": "Ton",
+    "decimals": 18,
+    "phantomQuote": "146064760000000000000",
+    "graduationThreshold": "365161900000000000000"
+   },
+   {
+    "pairToken": "0xDE9D6036FCA870f7efc5A82722Ae694c371Ac909",
+    "symbol": "UBERon",
+    "decimals": 18,
+    "phantomQuote": "55998880000000000000",
+    "graduationThreshold": "139997200000000000000"
+   },
+   {
+    "pairToken": "0xfe9aA194E3C4604f3872f220eb41C33A287FCD90",
+    "symbol": "UNPon",
+    "decimals": 18,
+    "phantomQuote": "13988960000000000000",
+    "graduationThreshold": "34972400000000000000"
+   },
+   {
+    "pairToken": "0x10b58A3d9DCeC59bB1c3bf6b9c9414eAfCE711C9",
+    "symbol": "VNQon",
+    "decimals": 18,
+    "phantomQuote": "41934160000000000000",
+    "graduationThreshold": "104835400000000000000"
+   },
+   {
+    "pairToken": "0x9Cea8A7Be1Ab0320b709d368Ad60d8500f55995f",
+    "symbol": "VRTon",
+    "decimals": 18,
+    "phantomQuote": "17044360000000000000",
+    "graduationThreshold": "42610900000000000000"
+   },
+   {
+    "pairToken": "0xA3B089C886E6d721f49DEF8E050F3b9D4362560B",
+    "symbol": "VZon",
+    "decimals": 18,
+    "phantomQuote": "75130720000000000000",
+    "graduationThreshold": "187826800000000000000"
+   },
+   {
+    "pairToken": "0x1CdE419faE0Ef7f7931aE3E29e5f411C8C5E5Fa1",
+    "symbol": "Von",
+    "decimals": 18,
+    "phantomQuote": "10576960000000000000",
+    "graduationThreshold": "26442400000000000000"
+   },
+   {
+    "pairToken": "0xcEb29848d04Ad3Cb46E1fE8E45B82ffAc39D797d",
+    "symbol": "WDCon",
+    "decimals": 18,
+    "phantomQuote": "9707920000000000000",
+    "graduationThreshold": "24269800000000000000"
+   },
+   {
+    "pairToken": "0x629520dEE1620dEf11596F84E85de9F1Ff653012",
+    "symbol": "WFCon",
+    "decimals": 18,
+    "phantomQuote": "43737600000000000000",
+    "graduationThreshold": "109344000000000000000"
+   },
+   {
+    "pairToken": "0x7B7AbD762a400c9768CDeeEF3C01DaE39e0B8427",
+    "symbol": "WMBon",
+    "decimals": 18,
+    "phantomQuote": "55842520000000000000",
+    "graduationThreshold": "139606300000000000000"
+   },
+   {
+    "pairToken": "0xa7d1e886acf66Ec0656DF2DECB4B7C893A3bAb4C",
+    "symbol": "WMTon",
+    "decimals": 18,
+    "phantomQuote": "36790760000000000000",
+    "graduationThreshold": "91976900000000000000"
+   },
+   {
+    "pairToken": "0xCE0466Bae0e867239719dC386CA84b1F3eFE6914",
+    "symbol": "WMon",
+    "decimals": 18,
+    "phantomQuote": "18306520000000000000",
+    "graduationThreshold": "45766300000000000000"
+   },
+   {
+    "pairToken": "0x4D209D275e3492aC08497A7A42915899c4dD5E86",
+    "symbol": "XOMon",
+    "decimals": 18,
+    "phantomQuote": "23297880000000000000",
+    "graduationThreshold": "58244700000000000000"
+   },
+   {
+    "pairToken": "0x924fa68a0FC644485b8df8AbfA0A41C2e7744444",
+    "symbol": "币安人生",
+    "decimals": 18,
+    "phantomQuote": "8267879280000000000000",
+    "graduationThreshold": "20669698200000000000000"
+   },
+   {
+    "pairToken": "0x0B61036b5182A29A228d8eD9e647a16f62baD1bC",
+    "symbol": "AAONon",
+    "decimals": 18,
+    "phantomQuote": "53821320000000000000",
+    "graduationThreshold": "134553300000000000000"
+   },
+   {
+    "pairToken": "0xa2a97e3d6140e8ccD058f3b84230F3E1a349b1a3",
+    "symbol": "AGon",
+    "decimals": 18,
+    "phantomQuote": "214592280000000000000",
+    "graduationThreshold": "536480700000000000000"
+   },
+   {
+    "pairToken": "0x333932F15E6E14f4a630163D3224548a721DdfA4",
+    "symbol": "AIQon",
+    "decimals": 18,
+    "phantomQuote": "63532400000000000000",
+    "graduationThreshold": "158831000000000000000"
+   },
+   {
+    "pairToken": "0x0B790ABd6594918DE1022233b7cc79baDB84d92a",
+    "symbol": "ALBon",
+    "decimals": 18,
+    "phantomQuote": "35134040000000000000",
+    "graduationThreshold": "87835100000000000000"
+   },
+   {
+    "pairToken": "0xb84e150A1d18380cFeEeBCdE8756368dD489A1A3",
+    "symbol": "AMKRon",
+    "decimals": 18,
+    "phantomQuote": "86244080000000000000",
+    "graduationThreshold": "215610200000000000000"
+   },
+   {
+    "pairToken": "0x45Abf29515bc23F8c0Ed2a06584444cE473A75FB",
+    "symbol": "ASTSon",
+    "decimals": 18,
+    "phantomQuote": "68061920000000000000",
+    "graduationThreshold": "170154800000000000000"
+   },
+   {
+    "pairToken": "0x66a1409FE303d00209202933e3d31eE43AaAB39d",
+    "symbol": "AURon",
+    "decimals": 18,
+    "phantomQuote": "621118000000000000000",
+    "graduationThreshold": "1552795000000000000000"
+   },
+   {
+    "pairToken": "0x2659Dd96deF34ceD3679901E5500779BE297fE5a",
+    "symbol": "BAIon",
+    "decimals": 18,
+    "phantomQuote": "94073360000000000000",
+    "graduationThreshold": "235183400000000000000"
+   },
+   {
+    "pairToken": "0x467e59ce5D5fe01686D4A80dd1E1DAE13549AA6c",
+    "symbol": "BIDUon",
+    "decimals": 18,
+    "phantomQuote": "44252680000000000000",
+    "graduationThreshold": "110631700000000000000"
+   },
+   {
+    "pairToken": "0x91fc7371d6dE682A1e8CFcB4EB7dA693312A03a4",
+    "symbol": "BILIon",
+    "decimals": 18,
+    "phantomQuote": "258732200000000000000",
+    "graduationThreshold": "646830500000000000000"
+   },
+   {
+    "pairToken": "0x03f09E2EF6e64D804a5579E21E7b519db174cf54",
+    "symbol": "BILon",
+    "decimals": 18,
+    "phantomQuote": "43711080000000000000",
+    "graduationThreshold": "109277700000000000000"
+   },
+   {
+    "pairToken": "0x398aE5B33505f121C359f22B300FbcFa81DB79AE",
+    "symbol": "BLCRon",
+    "decimals": 18,
+    "phantomQuote": "82644640000000000000",
+    "graduationThreshold": "206611600000000000000"
+   },
+   {
+    "pairToken": "0x52AD57A7eA642E99A892AFc79E937B383f1b59e9",
+    "symbol": "BMNRon",
+    "decimals": 18,
+    "phantomQuote": "169491520000000000000",
+    "graduationThreshold": "423728800000000000000"
+   },
+   {
+    "pairToken": "0xe2Ac868F2FD097086d83Bc939248E5aE08d35DA4",
+    "symbol": "BTGon",
+    "decimals": 18,
+    "phantomQuote": "762247760000000000000",
+    "graduationThreshold": "1905619400000000000000"
+   },
+   {
+    "pairToken": "0xc2f65e745Fd13af1d00d5c81dD33F762FB81C264",
+    "symbol": "CAMTon",
+    "decimals": 18,
+    "phantomQuote": "29704440000000000000",
+    "graduationThreshold": "74261100000000000000"
+   },
+   {
+    "pairToken": "0xa75F08b9a91439DAac9cc7072857cC0a98Cf527A",
+    "symbol": "CCJon",
+    "decimals": 18,
+    "phantomQuote": "43854840000000000000",
+    "graduationThreshold": "109637100000000000000"
+   },
+   {
+    "pairToken": "0xDcd4536508060dab8F43C334B3a6C72c39528DA5",
+    "symbol": "CIBRon",
+    "decimals": 18,
+    "phantomQuote": "39529720000000000000",
+    "graduationThreshold": "98824300000000000000"
+   },
+   {
+    "pairToken": "0xDad07D0Ca26ed4109Bc00893dBee3Ed4cE8ce2a4",
+    "symbol": "CIFRon",
+    "decimals": 18,
+    "phantomQuote": "265076200000000000000",
+    "graduationThreshold": "662690500000000000000"
+   },
+   {
+    "pairToken": "0xaC38a6608868e2f487d7993EA7339C69e5AB077b",
+    "symbol": "CLFon",
+    "decimals": 18,
+    "phantomQuote": "339270560000000000000",
+    "graduationThreshold": "848176400000000000000"
+   },
+   {
+    "pairToken": "0x7b695132b165cb6703F0212bBB1e91A782526156",
+    "symbol": "CLSon",
+    "decimals": 18,
+    "phantomQuote": "12625880000000000000",
+    "graduationThreshold": "31564700000000000000"
+   },
+   {
+    "pairToken": "0xAed5985afC12aA09d87F55B4b1e6bC3B8f7B0208",
+    "symbol": "CMGon",
+    "decimals": 18,
+    "phantomQuote": "114843520000000000000",
+    "graduationThreshold": "287108800000000000000"
+   },
+   {
+    "pairToken": "0x23def658ea0B4081161d9AB8fDfEef5345bcaFBD",
+    "symbol": "COROon",
+    "decimals": 18,
+    "phantomQuote": "109799600000000000000",
+    "graduationThreshold": "274499000000000000000"
+   },
+   {
+    "pairToken": "0x25eD86472cf3012607DC6576c58e6432968255C2",
+    "symbol": "CORZon",
+    "decimals": 18,
+    "phantomQuote": "249376560000000000000",
+    "graduationThreshold": "623441400000000000000"
+   },
+   {
+    "pairToken": "0x19904Bc04c09e5d29Ed216dDD105bdf103A0bA2D",
+    "symbol": "CPNGon",
+    "decimals": 18,
+    "phantomQuote": "272479560000000000000",
+    "graduationThreshold": "681198900000000000000"
+   },
+   {
+    "pairToken": "0x992879Cd8ce0c312d98648875B5A8D6D042cbF34",
+    "symbol": "CRCLon",
+    "decimals": 18,
+    "phantomQuote": "46349960000000000000",
+    "graduationThreshold": "115874900000000000000"
+   },
+   {
+    "pairToken": "0xf157481bEBd0C0686780fd0F61806C900A6137e8",
+    "symbol": "CRDOon",
+    "decimals": 18,
+    "phantomQuote": "26597520000000000000",
+    "graduationThreshold": "66493800000000000000"
+   },
+   {
+    "pairToken": "0x76E39171Cb665a35981e744e2CEB7012F76caEAc",
+    "symbol": "CRWVon",
+    "decimals": 18,
+    "phantomQuote": "49431520000000000000",
+    "graduationThreshold": "123578800000000000000"
+   },
+   {
+    "pairToken": "0x1CD89241B26FCDC421FD02907d6504C8AbBfe1bc",
+    "symbol": "DGRWon",
+    "decimals": 18,
+    "phantomQuote": "40522120000000000000",
+    "graduationThreshold": "101305300000000000000"
+   },
+   {
+    "pairToken": "0x087b5761b161429013d41eA54cd2fb6022A21564",
+    "symbol": "DRAMon",
+    "decimals": 18,
+    "phantomQuote": "72714040000000000000",
+    "graduationThreshold": "181785100000000000000"
+   },
+   {
+    "pairToken": "0x2A0A317660F497d4c4836d1ef5fAF5970e69437b",
+    "symbol": "DRSon",
+    "decimals": 18,
+    "phantomQuote": "108474560000000000000",
+    "graduationThreshold": "271186400000000000000"
+   },
+   {
+    "pairToken": "0x96A1b43C8146E6D1f6e66B226A3c520CbE3d8a50",
+    "symbol": "DYNFon",
+    "decimals": 18,
+    "phantomQuote": "58173360000000000000",
+    "graduationThreshold": "145433400000000000000"
+   },
+   {
+    "pairToken": "0x00c81d35edDF44c75d4Db9E07bDCdC236eB0ebcf",
+    "symbol": "EEMon",
+    "decimals": 18,
+    "phantomQuote": "60007320000000000000",
+    "graduationThreshold": "150018300000000000000"
+   },
+   {
+    "pairToken": "0x40375E3Dd70232eaF264706e5662b90A079e3D31",
+    "symbol": "EFVon",
+    "decimals": 18,
+    "phantomQuote": "48995600000000000000",
+    "graduationThreshold": "122489000000000000000"
+   },
+   {
+    "pairToken": "0xfB4a89A077B9020C7101b1Af760BEB708F37a416",
+    "symbol": "ENTGon",
+    "decimals": 18,
+    "phantomQuote": "30854680000000000000",
+    "graduationThreshold": "77136700000000000000"
+   },
+   {
+    "pairToken": "0x9A1C88ac479906A7f03e76605b15B72DF10d8E51",
+    "symbol": "EQTon",
+    "decimals": 18,
+    "phantomQuote": "75301200000000000000",
+    "graduationThreshold": "188253000000000000000"
+   },
+   {
+    "pairToken": "0x82715299f3f132FB85f3De1F7e8fAfd3d79f3eB5",
+    "symbol": "EWJon",
+    "decimals": 18,
+    "phantomQuote": "41116560000000000000",
+    "graduationThreshold": "102791400000000000000"
+   },
+   {
+    "pairToken": "0x12B7aDC48416A103F63E7e6210f62C81dfB91fD0",
+    "symbol": "EWYon",
+    "decimals": 18,
+    "phantomQuote": "22664160000000000000",
+    "graduationThreshold": "56660400000000000000"
+   },
+   {
+    "pairToken": "0x9876F4b879cDe9Aa49Ffd260034A0698B7B33A49",
+    "symbol": "EWZon",
+    "decimals": 18,
+    "phantomQuote": "105181840000000000000",
+    "graduationThreshold": "262954600000000000000"
+   },
+   {
+    "pairToken": "0x102138be022f8D142bcB817F7264921d65209608",
+    "symbol": "FLEXon",
+    "decimals": 18,
+    "phantomQuote": "37037040000000000000",
+    "graduationThreshold": "92592600000000000000"
+   },
+   {
+    "pairToken": "0xA1DaaB37dA2a29A1eC721922b55962eB8B481001",
+    "symbol": "FNon",
+    "decimals": 18,
+    "phantomQuote": "10669240000000000000",
+    "graduationThreshold": "26673100000000000000"
+   },
+   {
+    "pairToken": "0xD678F3F86436Ee298d28A3C414c367aDFeD65337",
+    "symbol": "FORMon",
+    "decimals": 18,
+    "phantomQuote": "39335240000000000000",
+    "graduationThreshold": "98338100000000000000"
+   },
+   {
+    "pairToken": "0xd8dAFFd168651470cd5397A5D670DD5F8E4b02f5",
+    "symbol": "FPSon",
+    "decimals": 18,
+    "phantomQuote": "127551040000000000000",
+    "graduationThreshold": "318877600000000000000"
+   },
+   {
+    "pairToken": "0x5acf40056ED51C8bBCD1b125Ef803581Ac89A627",
+    "symbol": "FUTUon",
+    "decimals": 18,
+    "phantomQuote": "36222320000000000000",
+    "graduationThreshold": "90555800000000000000"
+   },
+   {
+    "pairToken": "0xAff6b836d3eBd29aEb0C8b840Add04EF79d79678",
+    "symbol": "GFSon",
+    "decimals": 18,
+    "phantomQuote": "93567240000000000000",
+    "graduationThreshold": "233918100000000000000"
+   },
+   {
+    "pairToken": "0xF98B89825233808CD37706A53D2b4Ae3e359d442",
+    "symbol": "GLXYon",
+    "decimals": 18,
+    "phantomQuote": "179452680000000000000",
+    "graduationThreshold": "448631700000000000000"
+   },
+   {
+    "pairToken": "0xdABb9afF4cf02f26D2014e4cA9f94aC6fe6572a3",
+    "symbol": "GMEon",
+    "decimals": 18,
+    "phantomQuote": "183423600000000000000",
+    "graduationThreshold": "458559000000000000000"
+   },
+   {
+    "pairToken": "0x237c9F794EDAaA0071cDF64a41c25EB76771754b",
+    "symbol": "GNRCon",
+    "decimals": 18,
+    "phantomQuote": "22853240000000000000",
+    "graduationThreshold": "57133100000000000000"
+   },
+   {
+    "pairToken": "0xab2F74804C022C5249d52e743AF4340E42F5f3b6",
+    "symbol": "GRABon",
+    "decimals": 18,
+    "phantomQuote": "1374570440000000000000",
+    "graduationThreshold": "3436426100000000000000"
+   },
+   {
+    "pairToken": "0x7A18bB5FD6Ba6343180AfDCf6Dc406eF17F7fC04",
+    "symbol": "HALon",
+    "decimals": 18,
+    "phantomQuote": "112139040000000000000",
+    "graduationThreshold": "280347600000000000000"
+   },
+   {
+    "pairToken": "0x4Dc8dCeE22a56fEECa930dfF45581aa9A14D5E05",
+    "symbol": "HIIon",
+    "decimals": 18,
+    "phantomQuote": "14313320000000000000",
+    "graduationThreshold": "35783300000000000000"
+   },
+   {
+    "pairToken": "0x4693f6F5EF257381a28afd0673e64d8b32d5C6aD",
+    "symbol": "HIMSon",
+    "decimals": 18,
+    "phantomQuote": "143626560000000000000",
+    "graduationThreshold": "359066400000000000000"
+   },
+   {
+    "pairToken": "0x847ef23A3F99aF79A185ce033e1664165b846eEa",
+    "symbol": "HSAIon",
+    "decimals": 18,
+    "phantomQuote": "242571240000000000000",
+    "graduationThreshold": "606428100000000000000"
+   },
+   {
+    "pairToken": "0x1C42C07257F936a7c4f84B8D756c95817E23631A",
+    "symbol": "HUBBon",
+    "decimals": 18,
+    "phantomQuote": "9121400000000000000",
+    "graduationThreshold": "22803500000000000000"
+   },
+   {
+    "pairToken": "0x3A82f1C847cc55e52e597fD81c63a812C6722541",
+    "symbol": "HUTon",
+    "decimals": 18,
+    "phantomQuote": "45929480000000000000",
+    "graduationThreshold": "114823700000000000000"
+   },
+   {
+    "pairToken": "0x0DAE81A905b645a3D1E67129b89CD0Acda224E9A",
+    "symbol": "HYGon",
+    "decimals": 18,
+    "phantomQuote": "48322400000000000000",
+    "graduationThreshold": "120806000000000000000"
+   },
+   {
+    "pairToken": "0x879Fc0D8DFdb13b4aF3513d9838f82c4Df8F57E8",
+    "symbol": "IALTon",
+    "decimals": 18,
+    "phantomQuote": "135961920000000000000",
+    "graduationThreshold": "339904800000000000000"
+   },
+   {
+    "pairToken": "0xA486a0A05250E8621bA3B26C3bbc517145eba619",
+    "symbol": "IEFon",
+    "decimals": 18,
+    "phantomQuote": "43337600000000000000",
+    "graduationThreshold": "108344000000000000000"
+   },
+   {
+    "pairToken": "0x4E07B55E62f443859706E03aeA0b3fe3a1bfEA8B",
+    "symbol": "IEIon",
+    "decimals": 18,
+    "phantomQuote": "34974200000000000000",
+    "graduationThreshold": "87435500000000000000"
+   },
+   {
+    "pairToken": "0xA046C2F0A1Ac0a0E8829eFc12163ae892CEAfAc2",
+    "symbol": "IGVon",
+    "decimals": 18,
+    "phantomQuote": "37896720000000000000",
+    "graduationThreshold": "94741800000000000000"
+   },
+   {
+    "pairToken": "0x9609f804FD90440Dd3F4AfA1E0a4D57DFd580Ce8",
+    "symbol": "IJSon",
+    "decimals": 18,
+    "phantomQuote": "30034520000000000000",
+    "graduationThreshold": "75086300000000000000"
+   },
+   {
+    "pairToken": "0xdB0748297fbEf0B33dF89e86519A0BD3adAf6459",
+    "symbol": "INDAon",
+    "decimals": 18,
+    "phantomQuote": "84051280000000000000",
+    "graduationThreshold": "210128200000000000000"
+   },
+   {
+    "pairToken": "0xE3316F5372559768E14Bc7FfE983891A742987E7",
+    "symbol": "INSWon",
+    "decimals": 18,
+    "phantomQuote": "37126400000000000000",
+    "graduationThreshold": "92816000000000000000"
+   },
+   {
+    "pairToken": "0x40d8E1fbaf69173c47fa493FeB50a84eeC6b57eE",
+    "symbol": "IONQon",
+    "decimals": 18,
+    "phantomQuote": "107962200000000000000",
+    "graduationThreshold": "269905500000000000000"
+   },
+   {
+    "pairToken": "0x8FD70eE385f470c8D6FDA2D93a4E49C849BAC6a6",
+    "symbol": "IRENon",
+    "decimals": 18,
+    "phantomQuote": "96200080000000000000",
+    "graduationThreshold": "240500200000000000000"
+   },
+   {
+    "pairToken": "0x88B90f45bd6a4F97f7D85d280eD64A40880e4935",
+    "symbol": "ITAon",
+    "decimals": 18,
+    "phantomQuote": "18673960000000000000",
+    "graduationThreshold": "46684900000000000000"
+   },
+   {
+    "pairToken": "0xF54b94eA21e1Da5d51eF00fd4502225e5394F874",
+    "symbol": "IWNon",
+    "decimals": 18,
+    "phantomQuote": "18162360000000000000",
+    "graduationThreshold": "45405900000000000000"
+   },
+   {
+    "pairToken": "0xbEeEF4361F6603eDAceF5205b343C6bb6473A099",
+    "symbol": "IYWon",
+    "decimals": 18,
+    "phantomQuote": "15994880000000000000",
+    "graduationThreshold": "39987200000000000000"
+   },
+   {
+    "pairToken": "0x84719A1082ed487c7eeac7d69885E3CC2009Ea78",
+    "symbol": "JAAAon",
+    "decimals": 18,
+    "phantomQuote": "77279880000000000000",
+    "graduationThreshold": "193199700000000000000"
+   },
+   {
+    "pairToken": "0x8D941EbB4921f8d43CFA65233B14A547f96559fc",
+    "symbol": "JBLon",
+    "decimals": 18,
+    "phantomQuote": "13511240000000000000",
+    "graduationThreshold": "33778100000000000000"
+   },
+   {
+    "pairToken": "0xE92bE960aE64F6a914Ca77014CaC9E56DE7f36C1",
+    "symbol": "JDon",
+    "decimals": 18,
+    "phantomQuote": "142730760000000000000",
+    "graduationThreshold": "356826900000000000000"
+   },
+   {
+    "pairToken": "0x7437203800140BA7d9081ddE8cEF09EE40E3Bf03",
+    "symbol": "KWEBon",
+    "decimals": 18,
+    "phantomQuote": "163398680000000000000",
+    "graduationThreshold": "408496700000000000000"
+   },
+   {
+    "pairToken": "0x43807bf4ce06F4fbb4FA8DEac37BF274AEa324Da",
+    "symbol": "LECOon",
+    "decimals": 18,
+    "phantomQuote": "15767880000000000000",
+    "graduationThreshold": "39419700000000000000"
+   },
+   {
+    "pairToken": "0x9810beac9af3C30d14cFB61cDd557E160f60FD50",
+    "symbol": "LIon",
+    "decimals": 18,
+    "phantomQuote": "340136040000000000000",
+    "graduationThreshold": "850340100000000000000"
+   },
+   {
+    "pairToken": "0x80F03ABCb2BD85237740dD69f87d2F5De3909012",
+    "symbol": "LSCCon",
+    "decimals": 18,
+    "phantomQuote": "37562200000000000000",
+    "graduationThreshold": "93905500000000000000"
+   },
+   {
+    "pairToken": "0x4BAf4dC56Cf6a525a0874e25cc6372A6A8915135",
+    "symbol": "MPon",
+    "decimals": 18,
+    "phantomQuote": "81350400000000000000",
+    "graduationThreshold": "203376000000000000000"
+   },
+   {
+    "pairToken": "0x1dCd320C5d7b84CD407437c58d56CbbDd0D9d8f3",
+    "symbol": "MTSIon",
+    "decimals": 18,
+    "phantomQuote": "16665280000000000000",
+    "graduationThreshold": "41663200000000000000"
+   },
+   {
+    "pairToken": "0xf49046aAE76EAeb7ffd3EF116ce0f7CD0F52d93e",
+    "symbol": "MTZon",
+    "decimals": 18,
+    "phantomQuote": "17961400000000000000",
+    "graduationThreshold": "44903500000000000000"
+   },
+   {
+    "pairToken": "0x5Cb7671740877723c9aD55348a751D7B57052E07",
+    "symbol": "MXLon",
+    "decimals": 18,
+    "phantomQuote": "59594760000000000000",
+    "graduationThreshold": "148986900000000000000"
+   },
+   {
+    "pairToken": "0x031d85943ba7ca0304323195e7086a76c35366fB",
+    "symbol": "NEARon",
+    "decimals": 18,
+    "phantomQuote": "79808440000000000000",
+    "graduationThreshold": "199521100000000000000"
+   },
+   {
+    "pairToken": "0x8a5f83A4b3AD2B9604F53c4dDf8DcE1329f9d433",
+    "symbol": "NVMIon",
+    "decimals": 18,
+    "phantomQuote": "11937440000000000000",
+    "graduationThreshold": "29843600000000000000"
+   },
+   {
+    "pairToken": "0x484Ce83BB55b50D70236C7D1E29E0Ba7524f905B",
+    "symbol": "NVTon",
+    "decimals": 18,
+    "phantomQuote": "27247960000000000000",
+    "graduationThreshold": "68119900000000000000"
+   },
+   {
+    "pairToken": "0xaF6C03acf72355Ce98d0741302B78870b376428C",
+    "symbol": "OKLOon",
+    "decimals": 18,
+    "phantomQuote": "111172880000000000000",
+    "graduationThreshold": "277932200000000000000"
+   },
+   {
+    "pairToken": "0xB35a9EAB5D25282f4e668798B629a9294e9A47aa",
+    "symbol": "ONon",
+    "decimals": 18,
+    "phantomQuote": "54644800000000000000",
+    "graduationThreshold": "136612000000000000000"
+   },
+   {
+    "pairToken": "0xB0752Aa50B089EE6eA9aCD51373207Fa460E87bb",
+    "symbol": "OSCRon",
+    "decimals": 18,
+    "phantomQuote": "123304560000000000000",
+    "graduationThreshold": "308261400000000000000"
+   },
+   {
+    "pairToken": "0x6f28Cb07790c1049ecd7482d09Fd13B977B47201",
+    "symbol": "PAVEon",
+    "decimals": 18,
+    "phantomQuote": "75607320000000000000",
+    "graduationThreshold": "189018300000000000000"
+   },
+   {
+    "pairToken": "0x47B36DDB9dd12A8411f78226f55e8c3f0D65481f",
+    "symbol": "PCGon",
+    "decimals": 18,
+    "phantomQuote": "302301680000000000000",
+    "graduationThreshold": "755754200000000000000"
+   },
+   {
+    "pairToken": "0xCF3E84E62002ca459Db81B2032d7Fe13715BAd51",
+    "symbol": "PDBCon",
+    "decimals": 18,
+    "phantomQuote": "199004960000000000000",
+    "graduationThreshold": "497512400000000000000"
+   },
+   {
+    "pairToken": "0xCfD1F0DF84300EA1a4e2BA5238043A2fA5A7237c",
+    "symbol": "PINSon",
+    "decimals": 18,
+    "phantomQuote": "213219600000000000000",
+    "graduationThreshold": "533049000000000000000"
+   },
+   {
+    "pairToken": "0xf9015E0b3AB4ddd216F522D6150dB826c9BE83f8",
+    "symbol": "PLon",
+    "decimals": 18,
+    "phantomQuote": "249687880000000000000",
+    "graduationThreshold": "624219700000000000000"
+   },
+   {
+    "pairToken": "0xD381aec27DAAcCC87F102FF4Ad6652F8b5F20bA0",
+    "symbol": "POWLon",
+    "decimals": 18,
+    "phantomQuote": "23341320000000000000",
+    "graduationThreshold": "58353300000000000000"
+   },
+   {
+    "pairToken": "0x374D03A6c0d5bd4bE0A5117eBE1B49D52aC8a53F",
+    "symbol": "PYPLon",
+    "decimals": 18,
+    "phantomQuote": "73889200000000000000",
+    "graduationThreshold": "184723000000000000000"
+   },
+   {
+    "pairToken": "0x467C7cF9AF95765C1Bd6542FfD516BF9603A19b9",
+    "symbol": "QTUMon",
+    "decimals": 18,
+    "phantomQuote": "28022960000000000000",
+    "graduationThreshold": "70057400000000000000"
+   },
+   {
+    "pairToken": "0x64E023411215C3b75b9F339B7B77F179cd04C527",
+    "symbol": "QYLDon",
+    "decimals": 18,
+    "phantomQuote": "219178080000000000000",
+    "graduationThreshold": "547945200000000000000"
+   },
+   {
+    "pairToken": "0x277E1FA8704c5511FEd7E30Bc691F922aa30101B",
+    "symbol": "RIVNon",
+    "decimals": 18,
+    "phantomQuote": "257400240000000000000",
+    "graduationThreshold": "643500600000000000000"
+   },
+   {
+    "pairToken": "0xb4D695569236273745B4CD54B539b1b9Cc1513af",
+    "symbol": "RKLBon",
+    "decimals": 18,
+    "phantomQuote": "62942560000000000000",
+    "graduationThreshold": "157356400000000000000"
+   },
+   {
+    "pairToken": "0x49ccB157c77AFE5F264C35f0e9178a98D77815Ab",
+    "symbol": "RMBSon",
+    "decimals": 18,
+    "phantomQuote": "48129000000000000000",
+    "graduationThreshold": "120322500000000000000"
+   },
+   {
+    "pairToken": "0x95F7423c51Eab71cBD00ca855B0B2B2153F14184",
+    "symbol": "ROKon",
+    "decimals": 18,
+    "phantomQuote": "9592320000000000000",
+    "graduationThreshold": "23980800000000000000"
+   },
+   {
+    "pairToken": "0xe5ca1585c6053EE891027fD0A2548cB3B27D7f01",
+    "symbol": "SHLDon",
+    "decimals": 18,
+    "phantomQuote": "63928400000000000000",
+    "graduationThreshold": "159821000000000000000"
+   },
+   {
+    "pairToken": "0xf95e50BE5Efc96117c28775F80C7Cdb41Ebc4888",
+    "symbol": "SHYon",
+    "decimals": 18,
+    "phantomQuote": "48501600000000000000",
+    "graduationThreshold": "121254000000000000000"
+   },
+   {
+    "pairToken": "0x6A4c1B7aA18638fac4C8e0d1961405E27C25baf1",
+    "symbol": "SILon",
+    "decimals": 18,
+    "phantomQuote": "43145280000000000000",
+    "graduationThreshold": "107863200000000000000"
+   },
+   {
+    "pairToken": "0x8b872732b07be325a8803CDB480D9d20B6f8d11B",
+    "symbol": "SLVon",
+    "decimals": 18,
+    "phantomQuote": "69528960000000000000",
+    "graduationThreshold": "173822400000000000000"
+   },
+   {
+    "pairToken": "0xC142ba8ccD36d80C3a001342fb83E4C3d218A873",
+    "symbol": "SMCIon",
+    "decimals": 18,
+    "phantomQuote": "112233440000000000000",
+    "graduationThreshold": "280583600000000000000"
+   },
+   {
+    "pairToken": "0xF325884D9bcac457271fE7F7B6be1765348fCCa2",
+    "symbol": "SNAPon",
+    "decimals": 18,
+    "phantomQuote": "686106360000000000000",
+    "graduationThreshold": "1715265900000000000000"
+   },
+   {
+    "pairToken": "0x71507068e98049cBA81E9bbc8d901E4A2f4222Eb",
+    "symbol": "SOFIon",
+    "decimals": 18,
+    "phantomQuote": "234329240000000000000",
+    "graduationThreshold": "585823100000000000000"
+   },
+   {
+    "pairToken": "0xb943c8a0d77b656Daf5244Da060D647Fd9152289",
+    "symbol": "SOXLon",
+    "decimals": 18,
+    "phantomQuote": "39093040000000000000",
+    "graduationThreshold": "97732600000000000000"
+   },
+   {
+    "pairToken": "0x2A3cbF64C8181DB4a25D41D4d7a7Db9984C59DAC",
+    "symbol": "SOXXon",
+    "decimals": 18,
+    "phantomQuote": "8015760000000000000",
+    "graduationThreshold": "20039400000000000000"
+   },
+   {
+    "pairToken": "0x90EAa91Af0B4559F1F270258Bb5cDDFafbb62da9",
+    "symbol": "STLDon",
+    "decimals": 18,
+    "phantomQuote": "16721000000000000000",
+    "graduationThreshold": "41802500000000000000"
+   },
+   {
+    "pairToken": "0x8B46599e0E80a34F37e97DF58E741ca904cdfaBd",
+    "symbol": "STMon",
+    "decimals": 18,
+    "phantomQuote": "83472440000000000000",
+    "graduationThreshold": "208681100000000000000"
+   },
+   {
+    "pairToken": "0xc79Fc7aF952c8B41c6b7b7657dd24F44f7C10F2A",
+    "symbol": "SYMon",
+    "decimals": 18,
+    "phantomQuote": "93523480000000000000",
+    "graduationThreshold": "233808700000000000000"
+   },
+   {
+    "pairToken": "0x6459303F58244Ff1E7A42b90aA3782Dfb6Ca6969",
+    "symbol": "TCOMon",
+    "decimals": 18,
+    "phantomQuote": "101910840000000000000",
+    "graduationThreshold": "254777100000000000000"
+   },
+   {
+    "pairToken": "0x2Ac26EC236df5D1d2Ad1A6Dd4E448A90E45DC35D",
+    "symbol": "TIPon",
+    "decimals": 18,
+    "phantomQuote": "36359880000000000000",
+    "graduationThreshold": "90899700000000000000"
+   },
+   {
+    "pairToken": "0xf69e40069aC227C11459E3f4e8a446b3401616b6",
+    "symbol": "TLTon",
+    "decimals": 18,
+    "phantomQuote": "47464520000000000000",
+    "graduationThreshold": "118661300000000000000"
+   },
+   {
+    "pairToken": "0xe42CfB20e00912409B77A602B5BDcfF3c7aCC5F4",
+    "symbol": "TQQQon",
+    "decimals": 18,
+    "phantomQuote": "58752880000000000000",
+    "graduationThreshold": "146882200000000000000"
+   },
+   {
+    "pairToken": "0x343324170C91c4D8Cf4D439B3E5a619F50621aE7",
+    "symbol": "TSEMon",
+    "decimals": 18,
+    "phantomQuote": "20500200000000000000",
+    "graduationThreshold": "51250500000000000000"
+   },
+   {
+    "pairToken": "0xF400b05AD5A791c65Acc3f905E5aDe5F1B653c8c",
+    "symbol": "TTMIon",
+    "decimals": 18,
+    "phantomQuote": "35568200000000000000",
+    "graduationThreshold": "88920500000000000000"
+   },
+   {
+    "pairToken": "0xE7ddF606841ee278A30E5C90486681e68ddd8cbF",
+    "symbol": "UECon",
+    "decimals": 18,
+    "phantomQuote": "392927320000000000000",
+    "graduationThreshold": "982318300000000000000"
+   },
+   {
+    "pairToken": "0xf4fd75764A5C086fb12F822be2cA318b3a362DC3",
+    "symbol": "USFRon",
+    "decimals": 18,
+    "phantomQuote": "77808680000000000000",
+    "graduationThreshold": "194521700000000000000"
+   },
+   {
+    "pairToken": "0x9e23662f540C6bc117AdF91230730D9B2FDF5643",
+    "symbol": "VDEon",
+    "decimals": 18,
+    "phantomQuote": "21550560000000000000",
+    "graduationThreshold": "53876400000000000000"
+   },
+   {
+    "pairToken": "0x1D2EaAF0aE00382893aa4318Bd88d1Cd0e9B858A",
+    "symbol": "VFSon",
+    "decimals": 18,
+    "phantomQuote": "1282051280000000000000",
+    "graduationThreshold": "3205128200000000000000"
+   },
+   {
+    "pairToken": "0xa59469D91563CaeedDd2ffC731f41215E7b691ef",
+    "symbol": "VICRon",
+    "decimals": 18,
+    "phantomQuote": "21742680000000000000",
+    "graduationThreshold": "54356700000000000000"
+   },
+   {
+    "pairToken": "0xf2C24c47805f4f72d3919C8674bFDd401505794B",
+    "symbol": "VSTon",
+    "decimals": 18,
+    "phantomQuote": "28208040000000000000",
+    "graduationThreshold": "70520100000000000000"
+   },
+   {
+    "pairToken": "0x82436bAE31AE373258bA567f32087eeFc32189F2",
+    "symbol": "WCCon",
+    "decimals": 18,
+    "phantomQuote": "11959560000000000000",
+    "graduationThreshold": "29898900000000000000"
+   },
+   {
+    "pairToken": "0xb3D1a5F9bF92F18da643F2Ada2f2CdfDAE67E9d1",
+    "symbol": "WLKon",
+    "decimals": 18,
+    "phantomQuote": "57126520000000000000",
+    "graduationThreshold": "142816300000000000000"
+   },
+   {
+    "pairToken": "0xaD56701D9e57957e28e546Db7db508A16d4f86CC",
+    "symbol": "WULFon",
+    "decimals": 18,
+    "phantomQuote": "276052440000000000000",
+    "graduationThreshold": "690131100000000000000"
+   },
+   {
+    "pairToken": "0x82Ec31D69b3c289E541b50E30681FD1ACAd24444",
+    "symbol": "哈基米",
+    "decimals": 18,
+    "phantomQuote": "123076923080000000000000",
+    "graduationThreshold": "307692307700000000000000"
+   },
+   {
+    "pairToken": "0x0A43fC31a73013089DF59194872Ecae4cAe14444",
+    "symbol": "4",
+    "decimals": 18,
+    "phantomQuote": "185787273560000000000000",
+    "graduationThreshold": "464468183900000000000000"
+   },
+   {
+    "pairToken": "0x91C62325F901EE29Da8E521CfE68980332A4Ca06",
+    "symbol": "ACHRon",
+    "decimals": 18,
+    "phantomQuote": "731261440000000000000",
+    "graduationThreshold": "1828153600000000000000"
+   },
+   {
+    "pairToken": "0xF2e14fCE9259C8A7903c4be5326058aE2D004FC7",
+    "symbol": "ACLSon",
+    "decimals": 18,
+    "phantomQuote": "38080720000000000000",
+    "graduationThreshold": "95201800000000000000"
+   },
+   {
+    "pairToken": "0xC5EFD0c3a8fF6D9816DA7B56625aB4C398Eb9e08",
+    "symbol": "ACMRon",
+    "decimals": 18,
+    "phantomQuote": "62558640000000000000",
+    "graduationThreshold": "156396600000000000000"
+   },
+   {
+    "pairToken": "0xdCE0957E22F7baf2AA1a50d854e03cEe6f215004",
+    "symbol": "AEHRon",
+    "decimals": 18,
+    "phantomQuote": "49031640000000000000",
+    "graduationThreshold": "122579100000000000000"
+   },
+   {
+    "pairToken": "0xaE922B6cc2371B6Dce592A82Fac15ef890a7D467",
+    "symbol": "AIPon",
+    "decimals": 18,
+    "phantomQuote": "195982360000000000000",
+    "graduationThreshold": "489955900000000000000"
+   },
+   {
+    "pairToken": "0xBb8c10f7E828E3279df8CC3397A5212F845C509b",
+    "symbol": "AIon",
+    "decimals": 18,
+    "phantomQuote": "370713640000000000000",
+    "graduationThreshold": "926784100000000000000"
+   },
+   {
+    "pairToken": "0x941e3a7A6fC97B094C63a0348367cf90D93Ff090",
+    "symbol": "ALOYon",
+    "decimals": 18,
+    "phantomQuote": "472533960000000000000",
+    "graduationThreshold": "1181334900000000000000"
+   },
+   {
+    "pairToken": "0x1d7B5e06fdbe4FD33f5C64C081E32B5d539751D0",
+    "symbol": "AMCon",
+    "decimals": 18,
+    "phantomQuote": "1568627440000000000000",
+    "graduationThreshold": "3921568600000000000000"
+   },
+   {
+    "pairToken": "0x55B8cc618C4209A97250Dff926d3d708814d36aa",
+    "symbol": "AOSLon",
+    "decimals": 18,
+    "phantomQuote": "161550880000000000000",
+    "graduationThreshold": "403877200000000000000"
+   },
+   {
+    "pairToken": "0x2b08f1c28Cb1EdE3b11D397929F00215fA97ecFA",
+    "symbol": "ARGTon",
+    "decimals": 18,
+    "phantomQuote": "42328040000000000000",
+    "graduationThreshold": "105820100000000000000"
+   },
+   {
+    "pairToken": "0x1161989389A991532dCE453D04d6346C2581c907",
+    "symbol": "ARQQon",
+    "decimals": 18,
+    "phantomQuote": "218938160000000000000",
+    "graduationThreshold": "547345400000000000000"
+   },
+   {
+    "pairToken": "0xaFAA2087093b7B396ADAB8216506D9066c6A6F13",
+    "symbol": "ATKRon",
+    "decimals": 18,
+    "phantomQuote": "42305640000000000000",
+    "graduationThreshold": "105764100000000000000"
+   },
+   {
+    "pairToken": "0x0C50323AF81D5C33822c6Add256Fb9093D42BC74",
+    "symbol": "AXTIon",
+    "decimals": 18,
+    "phantomQuote": "69324080000000000000",
+    "graduationThreshold": "173310200000000000000"
+   },
+   {
+    "pairToken": "0x5f2d37192576a6804F44722eB828E280D5FB43Dc",
+    "symbol": "BNOon",
+    "decimals": 18,
+    "phantomQuote": "62932680000000000000",
+    "graduationThreshold": "157331700000000000000"
+   },
+   {
+    "pairToken": "0xb42f5597EAdd424de67b46Fe5d1EC4b61367A4e5",
+    "symbol": "BOTZon",
+    "decimals": 18,
+    "phantomQuote": "115506800000000000000",
+    "graduationThreshold": "288767000000000000000"
+   },
+   {
+    "pairToken": "0xC43Ae29aFE58bf90dA6Fe3Edd570C2E735fb2850",
+    "symbol": "BOTon",
+    "decimals": 18,
+    "phantomQuote": "149868880000000000000",
+    "graduationThreshold": "374672200000000000000"
+   },
+   {
+    "pairToken": "0x6860a2f969A8133A23421ddce21397995139D7e8",
+    "symbol": "BRHYon",
+    "decimals": 18,
+    "phantomQuote": "80000000000000000000",
+    "graduationThreshold": "200000000000000000000"
+   },
+   {
+    "pairToken": "0xD41829Dec8b51119176Ee0a6b73BC8B2718546A9",
+    "symbol": "BRLNon",
+    "decimals": 18,
+    "phantomQuote": "78716920000000000000",
+    "graduationThreshold": "196792300000000000000"
+   },
+   {
+    "pairToken": "0x463196CC72cBad2D1AC1896CDE0766bfBBd64443",
+    "symbol": "BRTRon",
+    "decimals": 18,
+    "phantomQuote": "82321480000000000000",
+    "graduationThreshold": "205803700000000000000"
+   },
+   {
+    "pairToken": "0x3A562836AFB1026F5D7A6B6dA1125D27fdfeE372",
+    "symbol": "BTDRon",
+    "decimals": 18,
+    "phantomQuote": "366636120000000000000",
+    "graduationThreshold": "916590300000000000000"
+   },
+   {
+    "pairToken": "0x5fA699c0c1319b8D86489AF77dFDe4Fa97B47DF8",
+    "symbol": "BTGOon",
+    "decimals": 18,
+    "phantomQuote": "551724120000000000000",
+    "graduationThreshold": "1379310300000000000000"
+   },
+   {
+    "pairToken": "0x472F46C5D7409C82234701EFf7D4DDA4c28B5a93",
+    "symbol": "BWETon",
+    "decimals": 18,
+    "phantomQuote": "5509800000000000000",
+    "graduationThreshold": "13774500000000000000"
+   },
+   {
+    "pairToken": "0x812Fc2943371C952c6c8Daf99Fe665Eb0e40Cd27",
+    "symbol": "CAPRon",
+    "decimals": 18,
+    "phantomQuote": "467289720000000000000",
+    "graduationThreshold": "1168224300000000000000"
+   },
+   {
+    "pairToken": "0x8B68b3D3173c406D2C5F4f2107D54E6562A23120",
+    "symbol": "CEVAon",
+    "decimals": 18,
+    "phantomQuote": "143317800000000000000",
+    "graduationThreshold": "358294500000000000000"
+   },
+   {
+    "pairToken": "0x4Ef383f521e803863a33FcA8F3f861e53eF9Ef9B",
+    "symbol": "CLOAon",
+    "decimals": 18,
+    "phantomQuote": "75430840000000000000",
+    "graduationThreshold": "188577100000000000000"
+   },
+   {
+    "pairToken": "0xd7E3317D54473DAb04135fb0676623f237Ff5CA9",
+    "symbol": "CLOIon",
+    "decimals": 18,
+    "phantomQuote": "73905120000000000000",
+    "graduationThreshold": "184762800000000000000"
+   },
+   {
+    "pairToken": "0x58cE0De0CED164f2Aeab5FCf81D67f3c61CB562C",
+    "symbol": "COHUon",
+    "decimals": 18,
+    "phantomQuote": "80048040000000000000",
+    "graduationThreshold": "200120100000000000000"
+   },
+   {
+    "pairToken": "0x0888EDfeC4C0A66FCE074796CF4F6509c00f6c49",
+    "symbol": "CPERon",
+    "decimals": 18,
+    "phantomQuote": "103439360000000000000",
+    "graduationThreshold": "258598400000000000000"
+   },
+   {
+    "pairToken": "0xFC2067E3e6a289C205151d96Ef67A032f339566D",
+    "symbol": "DBCon",
+    "decimals": 18,
+    "phantomQuote": "118764840000000000000",
+    "graduationThreshold": "296912100000000000000"
+   },
+   {
+    "pairToken": "0x09f5a6ee1b46787dd252827E40502c4980a0285d",
+    "symbol": "DGXXon",
+    "decimals": 18,
+    "phantomQuote": "1109570040000000000000",
+    "graduationThreshold": "2773925100000000000000"
+   },
+   {
+    "pairToken": "0x70bd780076E25D087Ed9c35f4e4A540522Abe8cF",
+    "symbol": "DNNon",
+    "decimals": 18,
+    "phantomQuote": "1398601400000000000000",
+    "graduationThreshold": "3496503500000000000000"
+   },
+   {
+    "pairToken": "0x660ab35bE0f102A1d4d4B60A96Ac3abfd345e038",
+    "symbol": "ECOon",
+    "decimals": 18,
+    "phantomQuote": "48350040000000000000",
+    "graduationThreshold": "120875100000000000000"
+   },
+   {
+    "pairToken": "0x5A9D924FC336A5EC8cf3B1909aA660533B50b015",
+    "symbol": "ENLVon",
+    "decimals": 18,
+    "phantomQuote": "67972924000000000000000",
+    "graduationThreshold": "169932310000000000000000"
+   },
+   {
+    "pairToken": "0x30938154E2697694F41592C2e48459287dEBe4BF",
+    "symbol": "ENPHon",
+    "decimals": 18,
+    "phantomQuote": "108932480000000000000",
+    "graduationThreshold": "272331200000000000000"
+   },
+   {
+    "pairToken": "0x92d504158A8Dc69de989dB5EDe3230D958fb8630",
+    "symbol": "EXODon",
+    "decimals": 18,
+    "phantomQuote": "634920640000000000000",
+    "graduationThreshold": "1587301600000000000000"
+   },
+   {
+    "pairToken": "0x1EadA1306DF72A5607827416c1A1307d7056dFFf",
+    "symbol": "EXTRon",
+    "decimals": 18,
+    "phantomQuote": "181405880000000000000",
+    "graduationThreshold": "453514700000000000000"
+   },
+   {
+    "pairToken": "0x47Bfe4921Bd74C66c6B0C35C517aBdFB5E3BAFb3",
+    "symbol": "FCELon",
+    "decimals": 18,
+    "phantomQuote": "262295080000000000000",
+    "graduationThreshold": "655737700000000000000"
+   },
+   {
+    "pairToken": "0xEA130432a9feE9ca1A7eDa84028650d38Bd0E232",
+    "symbol": "FFOGon",
+    "decimals": 18,
+    "phantomQuote": "81616000000000000000",
+    "graduationThreshold": "204040000000000000000"
+   },
+   {
+    "pairToken": "0xee0d57462f20434030B8262204c00c0eA0399C41",
+    "symbol": "FGDLon",
+    "decimals": 18,
+    "phantomQuote": "69938120000000000000",
+    "graduationThreshold": "174845300000000000000"
+   },
+   {
+    "pairToken": "0x240Eb4859B4537D250cf784cc758c404dA5Fe4bd",
+    "symbol": "FLHYon",
+    "decimals": 18,
+    "phantomQuote": "164056920000000000000",
+    "graduationThreshold": "410142300000000000000"
+   },
+   {
+    "pairToken": "0xF1a96d4B591E446445600789D60C73Dd636B357c",
+    "symbol": "FLNCon",
+    "decimals": 18,
+    "phantomQuote": "430107520000000000000",
+    "graduationThreshold": "1075268800000000000000"
+   },
+   {
+    "pairToken": "0x48187890D16aEE64798E02C5BeD510f4dB5694A9",
+    "symbol": "FLQLon",
+    "decimals": 18,
+    "phantomQuote": "51321320000000000000",
+    "graduationThreshold": "128303300000000000000"
+   },
+   {
+    "pairToken": "0x9b8E987e6fEc8Cf1380C4dcA7071e2C7853AEEA1",
+    "symbol": "FXIon",
+    "decimals": 18,
+    "phantomQuote": "115673920000000000000",
+    "graduationThreshold": "289184800000000000000"
+   },
+   {
+    "pairToken": "0x817942D5DE16092656568e9f67F54CCb462f8989",
+    "symbol": "GEMIon",
+    "decimals": 18,
+    "phantomQuote": "918484520000000000000",
+    "graduationThreshold": "2296211300000000000000"
+   },
+   {
+    "pairToken": "0x8Dd51E233E2344498F876c231a3Bd962E9750a6C",
+    "symbol": "GGOVon",
+    "decimals": 18,
+    "phantomQuote": "79824400000000000000",
+    "graduationThreshold": "199561000000000000000"
+   },
+   {
+    "pairToken": "0x15580092796f69825CFf4738Cac55D05D41eaa42",
+    "symbol": "GLTRon",
+    "decimals": 18,
+    "phantomQuote": "20583560000000000000",
+    "graduationThreshold": "51458900000000000000"
+   },
+   {
+    "pairToken": "0x6cF3b84f0Ba4d86d9f6987812A11Db2c447D9483",
+    "symbol": "HIMXon",
+    "decimals": 18,
+    "phantomQuote": "302571880000000000000",
+    "graduationThreshold": "756429700000000000000"
+   },
+   {
+    "pairToken": "0x3F19A16A401a6AF05150479Ccb76EF2Fb57B0dF3",
+    "symbol": "HIVEon",
+    "decimals": 18,
+    "phantomQuote": "1384083040000000000000",
+    "graduationThreshold": "3460207600000000000000"
+   },
+   {
+    "pairToken": "0xfF6f45B2D761CDE4dAb7F5d7A1A5f691F52F3bC3",
+    "symbol": "HLITon",
+    "decimals": 18,
+    "phantomQuote": "344234080000000000000",
+    "graduationThreshold": "860585200000000000000"
+   },
+   {
+    "pairToken": "0xB18C6A83490DDDbc9A83b011173b5B2Fb5dC1272",
+    "symbol": "HTZon",
+    "decimals": 18,
+    "phantomQuote": "2072538880000000000000",
+    "graduationThreshold": "5181347200000000000000"
+   },
+   {
+    "pairToken": "0x97B2FD5fC2F3e0dfD72D45734e360961528B6c63",
+    "symbol": "HYDBon",
+    "decimals": 18,
+    "phantomQuote": "87345800000000000000",
+    "graduationThreshold": "218364500000000000000"
+   },
+   {
+    "pairToken": "0x75E9D68e99e76714ed1a7663ab48ba3AaBd7A6c5",
+    "symbol": "HYSon",
+    "decimals": 18,
+    "phantomQuote": "42582720000000000000",
+    "graduationThreshold": "106456800000000000000"
+   },
+   {
+    "pairToken": "0xFb836dc42EBDfF6aA8DB9339336899061D1C4f3F",
+    "symbol": "ICHRon",
+    "decimals": 18,
+    "phantomQuote": "78293200000000000000",
+    "graduationThreshold": "195733000000000000000"
+   },
+   {
+    "pairToken": "0x5Fb339393773414039295ea97A92614fed85D556",
+    "symbol": "IDEFon",
+    "decimals": 18,
+    "phantomQuote": "126662440000000000000",
+    "graduationThreshold": "316656100000000000000"
+   },
+   {
+    "pairToken": "0x9e609E96B688927aa49Dcd9758E2081f0c48ccAB",
+    "symbol": "IGEBon",
+    "decimals": 18,
+    "phantomQuote": "92017480000000000000",
+    "graduationThreshold": "230043700000000000000"
+   },
+   {
+    "pairToken": "0x5e24DB6DE4C21E2C8f9E81bAcfCedFBAC2DeE4aa",
+    "symbol": "INCEon",
+    "decimals": 18,
+    "phantomQuote": "57667080000000000000",
+    "graduationThreshold": "144167700000000000000"
+   },
+   {
+    "pairToken": "0x790cFb394B1f399a3543Ba1F835DdE114A387eeb",
+    "symbol": "INROon",
+    "decimals": 18,
+    "phantomQuote": "110611520000000000000",
+    "graduationThreshold": "276528800000000000000"
+   },
+   {
+    "pairToken": "0x3cE678692a60Fb5F31963b05CB158F0cE0Ff1736",
+    "symbol": "IRDMon",
+    "decimals": 18,
+    "phantomQuote": "84943720000000000000",
+    "graduationThreshold": "212359300000000000000"
+   },
+   {
+    "pairToken": "0x5e3cA19c533C8C0381eac5319624596557C279ED",
+    "symbol": "KEELon",
+    "decimals": 18,
+    "phantomQuote": "1219512200000000000000",
+    "graduationThreshold": "3048780500000000000000"
+   },
+   {
+    "pairToken": "0x476a2caD3197Df68186b61bC36296E8d3d2d1b85",
+    "symbol": "LASRon",
+    "decimals": 18,
+    "phantomQuote": "105485240000000000000",
+    "graduationThreshold": "263713100000000000000"
+   },
+   {
+    "pairToken": "0x653156b9a46E21906Dddc82414871bBDB0261319",
+    "symbol": "LEMBon",
+    "decimals": 18,
+    "phantomQuote": "93665840000000000000",
+    "graduationThreshold": "234164600000000000000"
+   },
+   {
+    "pairToken": "0xfd7778D5d4e804b5B512471Df36d60C465199A52",
+    "symbol": "LITon",
+    "decimals": 18,
+    "phantomQuote": "57126520000000000000",
+    "graduationThreshold": "142816300000000000000"
+   },
+   {
+    "pairToken": "0x6AD19E0A57Cfea0bC521A12C6c82372852842933",
+    "symbol": "LPTHon",
+    "decimals": 18,
+    "phantomQuote": "430570520000000000000",
+    "graduationThreshold": "1076426300000000000000"
+   },
+   {
+    "pairToken": "0xA3b7B7cfEb023a6C4f444f5ca9a3Fc85809Ece15",
+    "symbol": "LUNRon",
+    "decimals": 18,
+    "phantomQuote": "288392200000000000000",
+    "graduationThreshold": "720980500000000000000"
+   },
+   {
+    "pairToken": "0x8aC67002282EeA816aFA0160d22a8d27f05BA07B",
+    "symbol": "LWLGon",
+    "decimals": 18,
+    "phantomQuote": "858369080000000000000",
+    "graduationThreshold": "2145922700000000000000"
+   },
+   {
+    "pairToken": "0xd226d8170EE38793430C7Dec6903df4B818BB74C",
+    "symbol": "MARAon",
+    "decimals": 18,
+    "phantomQuote": "355871880000000000000",
+    "graduationThreshold": "889679700000000000000"
+   },
+   {
+    "pairToken": "0x89C37104aFcee9a72187E05D960a1e09763a126e",
+    "symbol": "MEIon",
+    "decimals": 18,
+    "phantomQuote": "303720560000000000000",
+    "graduationThreshold": "759301400000000000000"
+   },
+   {
+    "pairToken": "0x93b83111c54aa3993B2De5FCcD4c70B26c522D5d",
+    "symbol": "MYRGon",
+    "decimals": 18,
+    "phantomQuote": "14744360000000000000",
+    "graduationThreshold": "36860900000000000000"
+   },
+   {
+    "pairToken": "0xe23f03d2907CdC38a10F6CcDc1a157bf1AFe51De",
+    "symbol": "NIKLon",
+    "decimals": 18,
+    "phantomQuote": "284191840000000000000",
+    "graduationThreshold": "710479600000000000000"
+   },
+   {
+    "pairToken": "0x3c276Dd9f9Eab5510f9eAfD3a6Ea54879b27CA3D",
+    "symbol": "NNEon",
+    "decimals": 18,
+    "phantomQuote": "253485440000000000000",
+    "graduationThreshold": "633713600000000000000"
+   },
+   {
+    "pairToken": "0xB56B7C2F9988448790B0F78697F405aB5e8597E6",
+    "symbol": "NVTSon",
+    "decimals": 18,
+    "phantomQuote": "370027760000000000000",
+    "graduationThreshold": "925069400000000000000"
+   },
+   {
+    "pairToken": "0x31D6011023D6c7695Efc29bB016830F3F36De40a",
+    "symbol": "OIHon",
+    "decimals": 18,
+    "phantomQuote": "9720280000000000000",
+    "graduationThreshold": "24300700000000000000"
+   },
+   {
+    "pairToken": "0x4321366277d4a6E170F1f28148C93E8c47636c14",
+    "symbol": "OIIon",
+    "decimals": 18,
+    "phantomQuote": "83892600000000000000",
+    "graduationThreshold": "209731500000000000000"
+   },
+   {
+    "pairToken": "0xd85d4Ce29b4cA361FF72Ef0E53D6236e334C5DB6",
+    "symbol": "ONDSon",
+    "decimals": 18,
+    "phantomQuote": "552486200000000000000",
+    "graduationThreshold": "1381215500000000000000"
+   },
+   {
+    "pairToken": "0xa09699fc0cbb1F85128450A0ff6a3c4d3A7E7B9B",
+    "symbol": "OPENon",
+    "decimals": 18,
+    "phantomQuote": "1509433960000000000000",
+    "graduationThreshold": "3773584900000000000000"
+   },
+   {
+    "pairToken": "0x88672043905BdD272df55a5A7Bb1b7E1e693cBc5",
+    "symbol": "OPRAon",
+    "decimals": 18,
+    "phantomQuote": "213983520000000000000",
+    "graduationThreshold": "534958800000000000000"
+   },
+   {
+    "pairToken": "0x2bC97B1c5F83F080798ee9E38Da5FBF621454FCf",
+    "symbol": "ORBXon",
+    "decimals": 18,
+    "phantomQuote": "97465880000000000000",
+    "graduationThreshold": "243664700000000000000"
+   },
+   {
+    "pairToken": "0x30033A17ea24E90631532582a1917c64AFBF87Af",
+    "symbol": "OUSTon",
+    "decimals": 18,
+    "phantomQuote": "121988400000000000000",
+    "graduationThreshold": "304971000000000000000"
+   },
+   {
+    "pairToken": "0x3fCD741646A9790635b938Cdb69af5Df356CbaAB",
+    "symbol": "PALLon",
+    "decimals": 18,
+    "phantomQuote": "33912680000000000000",
+    "graduationThreshold": "84781700000000000000"
+   },
+   {
+    "pairToken": "0x2144d620E3471441b12Bf256E01a09EAA5ea7F12",
+    "symbol": "PENGon",
+    "decimals": 18,
+    "phantomQuote": "84210520000000000000",
+    "graduationThreshold": "210526300000000000000"
+   },
+   {
+    "pairToken": "0x4752AE8f910b25e64E4406eAad50c1B4E8DE7E6D",
+    "symbol": "PLUGon",
+    "decimals": 18,
+    "phantomQuote": "1951219520000000000000",
+    "graduationThreshold": "4878048800000000000000"
+   },
+   {
+    "pairToken": "0x5417b7CFDb8a187004067297EbF1491c8D6D5C09",
+    "symbol": "POWIon",
+    "decimals": 18,
+    "phantomQuote": "82867200000000000000",
+    "graduationThreshold": "207168000000000000000"
+   },
+   {
+    "pairToken": "0xD60b0276640a693ece55660afAC0383ca6433882",
+    "symbol": "PRIMon",
+    "decimals": 18,
+    "phantomQuote": "52137640000000000000",
+    "graduationThreshold": "130344100000000000000"
+   },
+   {
+    "pairToken": "0xBC34D36B70E5A256F3D16F9cA9D3ca3838f6cC4F",
+    "symbol": "QLTAon",
+    "decimals": 18,
+    "phantomQuote": "87489080000000000000",
+    "graduationThreshold": "218722700000000000000"
+   },
+   {
+    "pairToken": "0x82E07C1017032cFd889b1Ca81EBe722c4D4de825",
+    "symbol": "QUBTon",
+    "decimals": 18,
+    "phantomQuote": "510204080000000000000",
+    "graduationThreshold": "1275510200000000000000"
+   },
+   {
+    "pairToken": "0x23e39D94807a8bb7e3f8294b4911D04EE26DcE39",
+    "symbol": "RDWon",
+    "decimals": 18,
+    "phantomQuote": "372093040000000000000",
+    "graduationThreshold": "930232600000000000000"
+   },
+   {
+    "pairToken": "0xCB6D74afF24AFc94514727eE0FCDA6bb6B64f3F9",
+    "symbol": "RXRXon",
+    "decimals": 18,
+    "phantomQuote": "1234567920000000000000",
+    "graduationThreshold": "3086419800000000000000"
+   },
+   {
+    "pairToken": "0x99e01F02d66455Bb106D91D469c9EAF6aB4904f6",
+    "symbol": "SBETon",
+    "decimals": 18,
+    "phantomQuote": "480192080000000000000",
+    "graduationThreshold": "1200480200000000000000"
+   },
+   {
+    "pairToken": "0xB0D7D4b65A654d43F91272Bb94E011Ce6812A2eF",
+    "symbol": "SECUon",
+    "decimals": 18,
+    "phantomQuote": "80943120000000000000",
+    "graduationThreshold": "202357800000000000000"
+   },
+   {
+    "pairToken": "0xf4b674D4E33c36F8db4b928A5eEC4E1F87b386e3",
+    "symbol": "SMRon",
+    "decimals": 18,
+    "phantomQuote": "474495840000000000000",
+    "graduationThreshold": "1186239600000000000000"
+   },
+   {
+    "pairToken": "0x15688f10470dFdDCb4E2d60CD2ACfd3eC418317a",
+    "symbol": "SOXQon",
+    "decimals": 18,
+    "phantomQuote": "45454560000000000000",
+    "graduationThreshold": "113636400000000000000"
+   },
+   {
+    "pairToken": "0x17515B68378d86C38F394c666e79907dA05dcBA9",
+    "symbol": "SQQQon",
+    "decimals": 18,
+    "phantomQuote": "96772960000000000000",
+    "graduationThreshold": "241932400000000000000"
+   },
+   {
+    "pairToken": "0x4b1c9087a6fe265A36FBf2C591B0986fE1115F50",
+    "symbol": "STNGon",
+    "decimals": 18,
+    "phantomQuote": "46658120000000000000",
+    "graduationThreshold": "116645300000000000000"
+   },
+   {
+    "pairToken": "0xeBe1408A7cce4f38dE15467e5139C3D82E4641F8",
+    "symbol": "SYSBon",
+    "decimals": 18,
+    "phantomQuote": "46342000000000000000",
+    "graduationThreshold": "115855000000000000000"
+   },
+   {
+    "pairToken": "0xDB69bEcc323fEc440cA8eb0C3564802E77cE2827",
+    "symbol": "TASKon",
+    "decimals": 18,
+    "phantomQuote": "483675920000000000000",
+    "graduationThreshold": "1209189800000000000000"
+   },
+   {
+    "pairToken": "0x686F8264625fe4E51F520Db856003A4dD52A49fF",
+    "symbol": "TENon",
+    "decimals": 18,
+    "phantomQuote": "78262560000000000000",
+    "graduationThreshold": "195656400000000000000"
+   },
+   {
+    "pairToken": "0x2BBF5ab85f9ceb595dD785Db15CC9f2931c6EA64",
+    "symbol": "TNKon",
+    "decimals": 18,
+    "phantomQuote": "40302280000000000000",
+    "graduationThreshold": "100755700000000000000"
+   },
+   {
+    "pairToken": "0xf8919fe7D586b11D0A900E987c4A41bC6c3195F5",
+    "symbol": "UAMYon",
+    "decimals": 18,
+    "phantomQuote": "858369080000000000000",
+    "graduationThreshold": "2145922700000000000000"
+   },
+   {
+    "pairToken": "0xB78ccbcd9DCE42D4fa5fdC835CB6a1aa1095a3b5",
+    "symbol": "UCTTon",
+    "decimals": 18,
+    "phantomQuote": "60919880000000000000",
+    "graduationThreshold": "152299700000000000000"
+   },
+   {
+    "pairToken": "0xCa626a74420aAaf285987Da23d829f9159Ab867c",
+    "symbol": "URNMon",
+    "decimals": 18,
+    "phantomQuote": "79365080000000000000",
+    "graduationThreshold": "198412700000000000000"
+   },
+   {
+    "pairToken": "0x94174e3D1335db402dD03A092f7aA7ac2cb32be4",
+    "symbol": "USOon",
+    "decimals": 18,
+    "phantomQuote": "24712720000000000000",
+    "graduationThreshold": "61781800000000000000"
+   },
+   {
+    "pairToken": "0xD2C06fef2ca2375a9C7ceB4AbcA9DBc2aB6aF981",
+    "symbol": "UUUUon",
+    "decimals": 18,
+    "phantomQuote": "337268120000000000000",
+    "graduationThreshold": "843170300000000000000"
+   },
+   {
+    "pairToken": "0xC8206bB42EC019f7E7Ea060ED887E9F5bB53cBB0",
+    "symbol": "VCXon",
+    "decimals": 18,
+    "phantomQuote": "132890360000000000000",
+    "graduationThreshold": "332225900000000000000"
+   },
+   {
+    "pairToken": "0xAd8920aFa9d158F5eBAb77c9FfcAD650D72e473D",
+    "symbol": "VPGon",
+    "decimals": 18,
+    "phantomQuote": "66028400000000000000",
+    "graduationThreshold": "165071000000000000000"
+   },
+   {
+    "pairToken": "0x821aEf7d0F4347bB9EA6f293a98b19d823EEF0C5",
+    "symbol": "VSHon",
+    "decimals": 18,
+    "phantomQuote": "127266960000000000000",
+    "graduationThreshold": "318167400000000000000"
+   },
+   {
+    "pairToken": "0x79ed7f4d9668E8e7AaadD12A711d19064840B9A5",
+    "symbol": "WENon",
+    "decimals": 18,
+    "phantomQuote": "536193040000000000000",
+    "graduationThreshold": "1340482600000000000000"
+   },
+   {
+    "pairToken": "0x55b56CC2cdcbC2C58668F72663bE7599a46Ed79F",
+    "symbol": "WOLFon",
+    "decimals": 18,
+    "phantomQuote": "166527880000000000000",
+    "graduationThreshold": "416319700000000000000"
+   },
+   {
+    "pairToken": "0x50e66EDb7D0b79Ee988f098754A27aFaa643B4f5",
+    "symbol": "WSon",
+    "decimals": 18,
+    "phantomQuote": "123228600000000000000",
+    "graduationThreshold": "308071500000000000000"
+   },
+   {
+    "pairToken": "0xCe128eDcF46B281b7df8880867B74E11B055E8E7",
+    "symbol": "WYFIon",
+    "decimals": 18,
+    "phantomQuote": "237812120000000000000",
+    "graduationThreshold": "594530300000000000000"
+   },
+   {
+    "pairToken": "0x1FE12ABDF560C753aCbC63533519d74801E04958",
+    "symbol": "XYLDon",
+    "decimals": 18,
+    "phantomQuote": "96571720000000000000",
+    "graduationThreshold": "241429300000000000000"
+   },
+   {
+    "pairToken": "0x4277d20430e901092E259bA9CF7164C37077aAF1",
+    "symbol": "YEARon",
+    "decimals": 18,
+    "phantomQuote": "79872200000000000000",
+    "graduationThreshold": "199680500000000000000"
+   },
+   {
+    "pairToken": "0x997A58129890bBdA032231A52eD1ddC845fc18e1",
+    "symbol": "SIREN",
+    "decimals": 18,
+    "phantomQuote": "166666666680000000000000",
+    "graduationThreshold": "416666666700000000000000"
+   },
+   {
+    "pairToken": "0x86Bb94DdD16Efc8bc58e6b056e8df71D9e666429",
+    "symbol": "TST",
+    "decimals": 18,
+    "phantomQuote": "261780104720000000000000",
+    "graduationThreshold": "654450261800000000000000"
+   },
+   {
+    "pairToken": "0x93eb8376ec73dD07F46ba7ae1EE9b0bbD937Ad93",
+    "symbol": "EUHYon",
+    "decimals": 18,
+    "phantomQuote": "76226760000000000000",
+    "graduationThreshold": "190566900000000000000"
+   },
+   {
+    "pairToken": "0x54B92Fd77229269Ff6484942C123cCa72f2D6fEC",
+    "symbol": "FSOLon",
+    "decimals": 18,
+    "phantomQuote": "340523760000000000000",
+    "graduationThreshold": "851309400000000000000"
+   },
+   {
+    "pairToken": "0x732823512Ba98D1BCDE471ca023ee2A0C9f117b7",
+    "symbol": "SATAon",
+    "decimals": 18,
+    "phantomQuote": "40000000000000000000",
+    "graduationThreshold": "100000000000000000000"
+   },
+   {
+    "pairToken": "0x71E9dc9DEbc18650BD2342B93623B88C2aD00c89",
+    "symbol": "STRCon",
+    "decimals": 18,
+    "phantomQuote": "39290520000000000000",
+    "graduationThreshold": "98226300000000000000"
+   },
+   {
+    "pairToken": "0x1f8955E640Cbd9abc3C3Bb408c9E2E1f5F20DfE6",
+    "symbol": "USDon",
+    "decimals": 18,
+    "phantomQuote": "4000000000000000000000",
+    "graduationThreshold": "10000000000000000000000"
+   },
+   {
+    "pairToken": "0x608593d17A2decBbc4399e4185bE4922F97eD32E",
+    "symbol": "USDY",
+    "decimals": 18,
+    "phantomQuote": "4000000000000000000000",
+    "graduationThreshold": "10000000000000000000000"
+   }
+  ]
+ },
+ "abis": {
+  "LoongLaunchFactory": "https://loongfamily.app/contracts/abis/LoongLaunchFactory.json",
+  "LoongBondingCurve": "https://loongfamily.app/contracts/abis/LoongBondingCurve.json",
+  "LoongLauncherToken": "https://loongfamily.app/contracts/abis/LoongLauncherToken.json",
+  "LoongMemeHook": "https://loongfamily.app/contracts/abis/LoongMemeHook.json",
+  "FeeEscrow": "https://loongfamily.app/contracts/abis/FeeEscrow.json",
+  "LoongLaunchLocker": "https://loongfamily.app/contracts/abis/LoongLaunchLocker.json",
+  "LoongLaunchDeployer": "https://loongfamily.app/contracts/abis/LoongLaunchDeployer.json",
+  "LoongGraduationExecutor": "https://loongfamily.app/contracts/abis/LoongGraduationExecutor.json",
+  "LaunchAndBuy": "https://loongfamily.app/contracts/abis/LaunchAndBuy.json",
+  "SwapAndBuy": "https://loongfamily.app/contracts/abis/SwapAndBuy.json",
+  "LoongBuybackVault": "https://loongfamily.app/contracts/abis/LoongBuybackVault.json",
+  "LoongFoundationVault": "https://loongfamily.app/contracts/abis/LoongFoundationVault.json",
+  "LoongBuybackBurner": "https://loongfamily.app/contracts/abis/LoongBuybackBurner.json"
+ },
+ "abiChecksums": {
+  "LoongLaunchFactory.json": "0x870466adc09675424aadc619b460d45a609200f6e1c0fbc1f147581ca3a57100",
+  "LoongBondingCurve.json": "0x7ca59b2eb2304a090361aec27dfdce56d5cc9d263367b56e1c23cc9589cae27c",
+  "LoongLauncherToken.json": "0xfdab35ef9cc996f4526d237e4a66309ba779542b26b5d5c6a9552a98b0a2e7cb",
+  "LoongMemeHook.json": "0xe736a07cf88979ee8381305acac53db68a66abdfbab88a3ed1571c58285bed15",
+  "FeeEscrow.json": "0xcd1de496381345eb3f3bcf8305ed556e4dc7aa55f7bfe8285dae9c2db2f32320",
+  "LoongLaunchLocker.json": "0x99ebd5a9cd370a101375286c134b3ca5c3bf32bc907aa04c938c682e78b29477",
+  "LoongLaunchDeployer.json": "0x7fee134f5791adeb3eaede5814692fe555c80a398d8eea2afd4d8c51897708b4",
+  "LoongGraduationExecutor.json": "0x03fe1de92e32c91a88ecac95d6637daa3677bce02c498e695bfd399207907190",
+  "LaunchAndBuy.json": "0x23b2b24482c70736467555a831eed43835e4b27983891c2937d6bd0e03d6ab20",
+  "SwapAndBuy.json": "0xd6a6580d516d5727d5299f7e928463316c0abf6ccfbd58333ec18613ee80a259",
+  "LoongBuybackVault.json": "0x9f7719f5c56eb29786510d9e952cb65a0de3eb60b887160dbc3ce37423c0f816",
+  "LoongFoundationVault.json": "0xea2a13ee29807441ddca7c9a67db9162a5dfdb455ec65123e8a40120023eefef",
+  "LoongBuybackBurner.json": "0x392c39e0f0f36b03b7de111f1d4c92bc70126dba87f7295a030506f9a59aed78",
+  "errors.json": "0x1546f2714e885474d452319487ff3c7114e920bc2f951f6b6fd11025fccf3263",
+  "LoongCurveCreationCode.json": "0x7be3c01ab28345086e5efeab06d63319a0a6a48b7e4a719d2bdbd9e037650942",
+  "LoongTokenCreationCode.json": "0x621b29c2d2b0f838fbd536eb5d53e19c499335b0152aba198e6f3c6745395d9b"
+ }
+}
